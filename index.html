@@ -3,471 +3,538 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio de Yankhoba Bakhoum, Développeur Full-Stack (WordPress, PWA, Flutter) et Sociologue spécialisé en solutions numériques à fort impact au Sénégal.">
-    <meta name="keywords" content="Développeur, Sénégal, PWA, Flutter, WordPress sur mesure, BTP, Touba, Dakar, Sociologie UX">
+    <meta name="description" content="Portfolio de Yankhoba Bakhoum, Développeur Full-Stack (WordPress, PWA, Flutter, Python) et Sociologue spécialisé en solutions numériques à fort impact (Dakar, Sénégal).">
+    <meta name="keywords" content="Développeur, Sénégal, PWA, Flutter, WordPress sur mesure, BTP, Touba, Dakar, Sociologie, UX Research, PySide6">
     <title>Yankhoba Bakhoum | Architecte Digital & Expert Socio-Technique</title>
     
     <!-- Polices Premium (Google Fonts) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
     
-    <!-- Lien vers Font Awesome -->
+    <!-- Lien vers Font Awesome (CDN) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Style Original -->
+    <!-- Lien vers votre feuille de style personnalisée -->
     <link rel="stylesheet" href="css/style.css">
     
-    <!-- Surcouche Ultra Premium "Glass & Clean" -->
+    <!-- Surcouche CSS Ultra Premium "Glass & Clean" -->
     <style>
         :root {
             --font-heading: 'Plus Jakarta Sans', sans-serif;
             --font-body: 'Inter', sans-serif;
             --premium-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
-            --premium-border: 1px solid rgba(255, 255, 255, 0.5);
-            --glass-bg: rgba(255, 255, 255, 0.6);
+            --premium-border: 1px solid rgba(255, 255, 255, 0.6);
+            --glass-bg: rgba(255, 255, 255, 0.65);
         }
 
-        body { font-family: var(--font-body); }
-        h1, h2, h3, h4, .logo, .section-title { font-family: var(--font-heading); }
+        body { font-family: var(--font-body); position: relative; overflow-x: hidden; }
+        h1, h2, h3, h4, h5, .logo, .section-title { font-family: var(--font-heading); }
         
         /* Orbes d'arrière-plan modernes */
         .premium-bg-orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(100px);
-            z-index: -3;
-            animation: pulse-orb 10s alternate infinite ease-in-out;
+            position: absolute; border-radius: 50%; filter: blur(100px); z-index: -3;
+            animation: pulse-orb 15s alternate infinite ease-in-out; pointer-events: none;
         }
         .orb-1 { width: 500px; height: 500px; background: rgba(37, 99, 235, 0.15); top: -100px; left: -100px; }
-        .orb-2 { width: 600px; height: 600px; background: rgba(124, 58, 237, 0.1); top: 20%; right: -200px; }
-        .orb-3 { width: 450px; height: 450px; background: rgba(20, 184, 166, 0.12); bottom: 10%; left: 10%; }
+        .orb-2 { width: 600px; height: 600px; background: rgba(124, 58, 237, 0.1); top: 30%; right: -200px; }
+        .orb-3 { width: 500px; height: 500px; background: rgba(20, 184, 166, 0.12); bottom: 10%; left: -50px; }
 
         @keyframes pulse-orb {
             0% { transform: scale(1) translate(0, 0); }
-            100% { transform: scale(1.1) translate(30px, -30px); }
+            100% { transform: scale(1.1) translate(40px, -40px); }
         }
 
-        /* Amélioration du Header */
-        header { backdrop-filter: blur(16px); background: rgba(255,255,255,0.7); border-bottom: var(--premium-border); }
+        /* Effets Premium Communs (Glassmorphism) */
+        .glass-card {
+            background: var(--glass-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            border: var(--premium-border); border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            transition: all 0.4s ease;
+        }
+        .glass-card:hover { transform: translateY(-8px); box-shadow: var(--premium-shadow); border-color: rgba(37, 99, 235, 0.3); }
+
+        /* Textes en Dégradé */
+        .highlight-accent {
+            background: linear-gradient(120deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800;
+        }
 
         /* Badge Professionnel Héro */
         .pro-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 16px;
-            background: rgba(37, 99, 235, 0.08);
-            border: 1px solid rgba(37, 99, 235, 0.2);
-            color: var(--primary);
-            border-radius: 30px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 25px;
-            letter-spacing: 0.5px;
+            display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; margin-bottom: 25px;
+            background: rgba(37, 99, 235, 0.08); border: 1px solid rgba(37, 99, 235, 0.2);
+            color: var(--primary); border-radius: 30px; font-size: 0.9rem; font-weight: 600;
         }
-        
-        .pro-badge span.pulse-dot {
-            width: 8px; height: 8px;
-            background: #25D366; border-radius: 50%;
-            box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-            animation: pulse-green 1.5s infinite;
+        .pulse-dot {
+            width: 8px; height: 8px; background: #25D366; border-radius: 50%;
+            box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); animation: pulse-green 1.5s infinite;
         }
-        
-        @keyframes pulse-green { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
+        @keyframes pulse-green { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 8px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
 
-        /* Modernisation de la grille Projets */
-        .projects-container {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px;
-        }
-        
-        .project-card {
-            background: var(--glass-bg); backdrop-filter: blur(10px);
-            border: var(--premium-border); border-radius: 24px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03); transition: all 0.4s ease;
-        }
-        .project-card:hover { transform: translateY(-8px); box-shadow: var(--premium-shadow); border-color: rgba(37, 99, 235, 0.3); }
-        .project-card::before { display: none; /* Désactiver la barre native */ }
-        
-        .project-img-wrapper { position: relative; overflow: hidden; border-radius: 24px 24px 0 0; padding: 15px 15px 0 15px;}
-        .project-img { width: 100%; height: 220px; border-radius: 16px; object-fit: cover; transition: transform 0.6s ease; }
+        /* Ajustements Section Projets */
+        .project-card { border::none; position: relative; padding: 0; display: flex; flex-direction: column; cursor: pointer; }
+        .project-card::before { display: none; /* Annule la barre d'origine de style.css */ }
+        .project-img-wrapper { position: relative; overflow: hidden; border-radius: 24px 24px 0 0; padding: 12px 12px 0 12px; }
+        .project-img { width: 100%; height: 230px; border-radius: 16px; object-fit: cover; transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
         .project-card:hover .project-img { transform: scale(1.04); }
-
         .project-type {
-            position: absolute; top: 25px; left: 25px; background: rgba(0,0,0,0.7);
-            backdrop-filter: blur(8px); color: #fff; padding: 6px 14px;
-            border-radius: 20px; font-size: 0.8rem; font-weight: 600; font-family: var(--font-heading);
+            position: absolute; top: 25px; left: 25px; background: rgba(0,0,0,0.7); backdrop-filter: blur(8px);
+            color: #fff; padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;
         }
-        
-        /* Modernisation Cartes à propos & contact */
-        .skill-card, .research-card, .contact-info, .contact-form {
-            background: var(--glass-bg); backdrop-filter: blur(12px); border: var(--premium-border);
-            border-radius: 24px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.02);
-        }
+        .project-content { padding: 25px; display: flex; flex-direction: column; flex-grow: 1; }
+        .project-tags { margin-top: auto; padding-top: 15px; }
 
-        .highlight-accent {
-            background: linear-gradient(120deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
+        /* Modal Ultra Clean */
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); padding-top: 5vh; }
+        .modal-content { background: #fff; margin: auto; padding: 0; border-radius: 24px; width: 90%; max-width: 900px; position: relative; box-shadow: 0 25px 50px rgba(0,0,0,0.3); overflow: hidden; animation: slideUp 0.4s ease-out forwards; }
+        .close-modal { position: absolute; top: 15px; right: 20px; font-size: 35px; color: #fff; z-index: 10; cursor: pointer; background: rgba(0,0,0,0.5); width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: background 0.3s; }
+        .close-modal:hover { background: var(--primary); }
+        .modal-project-images img { width: 100%; height: 400px; object-fit: cover; border-radius: 0; box-shadow: none; display: block; }
+        .modal-project-info { padding: 40px; }
+        
+        @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+        /* Formulaire & Contacts Modifiés */
+        .contact-icon { font-size: 1.5rem; width: 50px; height: 50px; background: rgba(37,99,235,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .form-control { background: #fff; border: 1px solid rgba(0,0,0,0.08); padding: 18px 20px; border-radius: 16px; transition: all 0.3s ease; font-family: var(--font-body); }
+        .form-control:focus { background: #fff; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1); }
     </style>
 </head>
 <body>
 
-    <!-- Arrière-plan décoratif Premium -->
+    <!-- Arrière-plan décoratif -->
     <div class="premium-bg-orb orb-1"></div>
     <div class="premium-bg-orb orb-2"></div>
     <div class="premium-bg-orb orb-3"></div>
 
     <!-- Header -->
-    <header id="header">
+    <header id="header" style="background: rgba(255,255,255,0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.05);">
         <div class="container nav-container">
             <a href="#accueil" class="logo">
                 <i class="fas fa-layer-group" style="color:var(--primary)"></i>
-                <span>Y. Bakhoum</span>
+                <span>Yankhoba Bakhoum</span>
             </a>
             
             <ul class="nav-menu">
                 <li class="nav-item"><a href="#accueil" class="nav-link active">Accueil</a></li>
                 <li class="nav-item"><a href="#a-propos" class="nav-link">À Propos</a></li>
                 <li class="nav-item"><a href="#projets" class="nav-link">Projets</a></li>
-                <li class="nav-item"><a href="#competences" class="nav-link">Savoir-faire</a></li>
+                <li class="nav-item"><a href="#competences" class="nav-link">Compétences</a></li>
                 <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
             
-            <div class="nav-toggle"><i class="fas fa-bars"></i></div>
+            <div class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </header>
 
-    <!-- Accueil -->
     <main>
+        <!-- Section Accueil (Hero) -->
         <section class="hero" id="accueil">
             <div class="container hero-container">
-                <div class="hero-content reveal active">
+                <div class="hero-content">
                     <div class="pro-badge">
-                        <span class="pulse-dot"></span> Disponible pour des projets
+                        <span class="pulse-dot"></span> Disponible pour de nouveaux projets
                     </div>
-                    <h1 class="hero-title">Je conçois des écosystèmes digitaux <span class="highlight-accent">sur mesure.</span></h1>
+                    <h1 class="hero-title">Architecte d'expériences <br><span class="highlight-accent">Socio-Techniques.</span></h1>
                     <p class="hero-description">
-                        Double compétence : <strong>Développeur Web & Mobile / Sociologue</strong>. 
-                        Je combine la puissance des technologies premium (WordPress sur-mesure, PWA, Flutter, Python) à une profonde compréhension des besoins des utilisateurs locaux pour garantir l'impact de chaque projet.
+                        Double compétence : <strong>Développeur Full-Stack & Sociologue</strong>. <br>
+                        Je construis des outils puissants (Sites Vitrine Premium, Apps Flutter, PWA, Logiciels Bureau) fondés sur l'écoute active et la compréhension réelle des utilisateurs locaux au Sénégal et à l'international.
                     </p>
                     <div class="hero-buttons">
                         <a href="#projets" class="btn">
-                            <i class="fas fa-briefcase"></i> Voir mes réalisations
+                            <i class="fas fa-briefcase"></i> Découvrir mes réalisations
                         </a>
-                        <a href="https://wa.me/+221786056914" target="_blank" class="btn btn-outline" style="border-color:#25D366; color:#25D366">
-                            <i class="fab fa-whatsapp"></i> Parlons-en
+                        <a href="#contact" class="btn btn-outline" style="border-color:#25D366; color:#25D366; background: rgba(37,211,102,0.05);">
+                            <i class="fab fa-whatsapp"></i> Parlons-en sur WhatsApp
                         </a>
                     </div>
                 </div>
-                <div class="hero-image reveal active">
-                    <div class="profile-img-container">
-                        <img src="assets/images/profil_bakhoum.png" alt="Photo de Yankhoba Bakhoum" class="profile-img">
+                <div class="hero-image">
+                    <!-- Les orbes sont en arrière plan CSS -->
+                    <div class="profile-img-container glass-card" style="padding:15px; background: rgba(255,255,255,0.4);">
+                        <img src="assets/images/profil_bakhoum.png" alt="Photo de profil" class="profile-img" style="border-radius:12px;">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Projets Réalisés -->
-        <section class="projects" id="projets">
+        <!-- Section Projets Phares -->
+        <section class="projects" id="projets" style="padding-top: 80px;">
             <div class="container">
                 <h2 class="section-title reveal">Sélection de Projets</h2>
-                <span class="section-subtitle reveal">Développements Web (BTP, E-commerce), Applications Mobiles & Logiciels Métier.</span>
+                <span class="section-subtitle reveal">Des applications BTP, des PWA E-commerce et des plateformes locales au design soigné.</span>
                 
                 <div class="projects-container">
                     
-                    <!-- Nouveau Projet 1: Touba BTP -->
-                    <div class="project-card reveal" data-project="toubabtp">
+                    <!-- Projet 1 : Touba BTP -->
+                    <div class="project-card glass-card reveal" data-project="toubabtp">
                         <div class="project-img-wrapper">
-                            <span class="project-type">BTP & Corporate</span>
-                            <!-- Placeholder: Placez la capture d'écran de Touba BTP ici -->
-                            <img src="assets/images/projet_toubabtp.png" alt="Touba BTP Site Web" class="project-img" loading="lazy">
+                            <span class="project-type"><i class="fas fa-hard-hat"></i> BTP / Corporate</span>
+                            <!-- REMPLACEZ CES CHEMINS SI BESOIN -->
+                            <img src="assets/images/projet_toubabtp.png" alt="Touba BTP" class="project-img" loading="lazy" onerror="this.src='https://via.placeholder.com/800x600.png?text=Aper%C3%A7u+Touba+BTP'">
                         </div>
                         <div class="project-content">
-                            <h3 class="project-title">Touba BTP - Site Vitrine</h3>
-                            <p class="project-description">Thème WordPress codé entièrement sur mesure pour une entreprise de construction de référence. Refonte complète mettant en avant les ouvrages et l'expertise terrain.</p>
+                            <h3 class="project-title" style="margin-bottom:10px;">Touba BTP - Site Sur-Mesure</h3>
+                            <p class="project-description">Refonte complète avec un Thème WordPress conçu à partir de zéro (From Scratch) pour mettre en valeur le savoir-faire de l'entreprise.</p>
                             <div class="project-tags">
-                                <span class="tag">WordPress</span><span class="tag">PHP</span><span class="tag">Custom Theme</span>
+                                <span class="tag">WordPress custom</span><span class="tag">PHP</span><span class="tag">CSS3</span>
                             </div>
-                            <button class="btn btn-outline" style="width: 100%;">Voir les détails <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
 
-                    <!-- Nouveau Projet 2: Mame Lamp Quincaillerie -->
-                    <div class="project-card reveal" data-project="mamelamp">
+                    <!-- Projet 2 : Mame Lamp -->
+                    <div class="project-card glass-card reveal" data-project="mamelamp">
                         <div class="project-img-wrapper">
-                            <span class="project-type">PWA / E-commerce</span>
-                            <!-- Placeholder -->
-                            <img src="assets/images/projet_mamelamp.png" alt="Mame Lamp" class="project-img" loading="lazy">
+                            <span class="project-type"><i class="fas fa-shopping-cart"></i> PWA E-commerce</span>
+                            <img src="assets/images/projet_mamelamp.png" alt="Mame Lamp" class="project-img" loading="lazy" onerror="this.src='https://via.placeholder.com/800x600.png?text=Aper%C3%A7u+Mame+Lamp'">
                         </div>
                         <div class="project-content">
-                            <h3 class="project-title">Mame Lamp Quincaillerie</h3>
-                            <p class="project-description">Solution e-commerce Mobile-First hybride (Progressive Web App). Fluidité absolue sur mobile, fonctionnement hors-ligne partiel, augmentant les ventes locales.</p>
+                            <h3 class="project-title" style="margin-bottom:10px;">Quincaillerie Mame Lamp</h3>
+                            <p class="project-description">Solution e-commerce Mobile-First développée en Progressive Web App (PWA). Rapidité et fluidité extrêmes adaptées à la connexion locale.</p>
                             <div class="project-tags">
-                                <span class="tag">PWA</span><span class="tag">WooCommerce</span><span class="tag">Mobile First</span>
+                                <span class="tag">PWA</span><span class="tag">WooCommerce</span><span class="tag">Mobile</span>
                             </div>
-                            <button class="btn btn-outline" style="width: 100%;">Voir les détails <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
 
-                    <!-- Nouveau Projet 3: Resto Bi -->
-                    <div class="project-card reveal" data-project="restobi">
+                    <!-- Projet 3 : Resto Bi -->
+                    <div class="project-card glass-card reveal" data-project="restobi">
                         <div class="project-img-wrapper">
-                            <span class="project-type">Application Mobile / POS</span>
-                            <img src="assets/images/projet_restobi.png" alt="Resto Bi" class="project-img" loading="lazy">
+                            <span class="project-type"><i class="fas fa-utensils"></i> Application Mobile Flutter</span>
+                            <img src="assets/images/projet_restobi.png" alt="Resto Bi" class="project-img" loading="lazy" onerror="this.src='https://via.placeholder.com/800x600.png?text=Aper%C3%A7u+Resto+Bi'">
                         </div>
                         <div class="project-content">
-                            <h3 class="project-title">Resto Bi - Fast Food App</h3>
-                            <p class="project-description">Caisse Enregistreuse (POS) et prise de commande fluide. Développée en Flutter pour un rendement ultra-rapide des serveurs et du back-office de la cuisine.</p>
+                            <h3 class="project-title" style="margin-bottom:10px;">Resto Bi (Fast Food POS)</h3>
+                            <p class="project-description">Caisse Enregistreuse Mobile innovante (Point Of Sale). Fluidifie la prise de commande entre le serveur, la caisse et la cuisine en temps réel.</p>
                             <div class="project-tags">
                                 <span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">App Mobile</span>
                             </div>
-                            <button class="btn btn-outline" style="width: 100%;">Voir les détails <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
 
-                    <!-- Projet 4: Sendiwaan -->
-                    <div class="project-card reveal" data-project="sendiwaan">
+                    <!-- Projet 4 : Sendiwaan -->
+                    <div class="project-card glass-card reveal" data-project="sendiwaan">
                         <div class="project-img-wrapper">
-                            <span class="project-type">Plateforme d'Annonces</span>
-                            <img src="assets/images/projet_sendiwaan.png" alt="Sendiwaan" class="project-img" loading="lazy">
+                            <span class="project-type"><i class="fas fa-bullhorn"></i> Plateforme Web</span>
+                            <img src="assets/images/projet_sendiwaan.png" alt="Sendiwaan" class="project-img" loading="lazy" onerror="this.src='https://via.placeholder.com/800x600.png?text=Aper%C3%A7u+Sendiwaan'">
                         </div>
                         <div class="project-content">
-                            <h3 class="project-title">Sendiwaan</h3>
-                            <p class="project-description">Plateforme de mise en relation locale. Conçue pour briser la barrière technologique, favorisant l'économie circulaire avec un accès facilité.</p>
+                            <h3 class="project-title" style="margin-bottom:10px;">Sendiwaan Annonces</h3>
+                            <p class="project-description">Plateforme facilitant l'économie circulaire locale à travers la diffusion gratuite et simplifiée de petites annonces avec moteur de recherche interne.</p>
                             <div class="project-tags">
-                                <span class="tag">PHP</span><span class="tag">JS</span><span class="tag">Éco Circulaire</span>
+                                <span class="tag">WordPress</span><span class="tag">Javascript</span><span class="tag">Social</span>
                             </div>
-                            <button class="btn btn-outline" style="width: 100%;">Voir les détails <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
-
-                    <!-- Projet 5: Sama Daara -->
-                    <div class="project-card reveal" data-project="samadaara">
+                    
+                    <!-- Projet 5 : Sama Daara -->
+                    <div class="project-card glass-card reveal" data-project="samadaara">
                         <div class="project-img-wrapper">
-                            <span class="project-type">Logiciel Bureau Python</span>
-                            <img src="assets/images/projet_samadaara.png" alt="Sama Daara" class="project-img" loading="lazy">
+                            <span class="project-type"><i class="fas fa-laptop-code"></i> Logiciel Bureau (ERP)</span>
+                            <img src="assets/images/projet_samadaara.png" alt="Sama Daara" class="project-img" loading="lazy" onerror="this.src='https://via.placeholder.com/800x600.png?text=Aper%C3%A7u+Sama+Daara'">
                         </div>
                         <div class="project-content">
-                            <h3 class="project-title">Sama Daara ERP</h3>
-                            <p class="project-description">Projet socio-technique majeur : un outil pensé *pour* le contexte des daaras sénégalais (respect des codes culturels, interface simplifiée sans connexion constante).</p>
+                            <h3 class="project-title" style="margin-bottom:10px;">Sama Daara Gestion</h3>
+                            <p class="project-description">Développé en Python avec une UX centrée sur les codes culturels de l'éducation religieuse. Stockage local des données pour l'autonomie et la sécurité.</p>
                             <div class="project-tags">
                                 <span class="tag">Python</span><span class="tag">PySide6</span><span class="tag">SQLite</span>
                             </div>
-                            <button class="btn btn-outline" style="width: 100%;">Voir les détails <i class="fas fa-arrow-right"></i></button>
-                        </div>
-                    </div>
-                    
-                    <!-- Projet 6: ScrcpyGui -->
-                    <div class="project-card reveal" data-project="scrcpygui">
-                        <div class="project-img-wrapper">
-                            <span class="project-type">Outil Open Source</span>
-                            <img src="assets/images/projet_scrcpygui.png" alt="Scrcpy Gui" class="project-img" loading="lazy">
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Scrcpy UI</h3>
-                            <p class="project-description">Création d'une interface graphique pour développeurs souhaitant projeter et piloter l'écran d'appareils Android en USB/WIFI avec fluidité.</p>
-                            <div class="project-tags">
-                                <span class="tag">Python</span><span class="tag">Open Source</span>
-                            </div>
-                            <button class="btn btn-outline" style="width: 100%;">Voir les détails <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
 
+                    <!-- Projet 6 : ScrcpyGui -->
+                    <div class="project-card glass-card reveal" data-project="scrcpygui">
+                        <div class="project-img-wrapper">
+                            <span class="project-type"><i class="fas fa-terminal"></i> Open Source DevTool</span>
+                            <img src="assets/images/projet_scrcpygui.png" alt="ScrcpyGui" class="project-img" loading="lazy" onerror="this.src='https://via.placeholder.com/800x600.png?text=Aper%C3%A7u+Scrcpy'">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title" style="margin-bottom:10px;">Scrcpy UI - Android Cast</h3>
+                            <p class="project-description">Interface graphique épurée rendant la puissante librairie ligne de commande 'Scrcpy' accessible facilement pour des tests QA Mobile.</p>
+                            <div class="project-tags">
+                                <span class="tag">Python</span><span class="tag">GUI</span><span class="tag">Android</span>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </section>
 
-        <!-- À Propos / Vision -->
+        <!-- Section À Propos & Vision (L'Humain + Code) -->
         <section class="about" id="a-propos">
             <div class="container">
-                <h2 class="section-title reveal">La Technologie <span class="highlight-accent">Pensée pour l'Humain</span></h2>
-                <span class="section-subtitle reveal">La sociologie donne un sens au code</span>
+                <h2 class="section-title reveal">Quand la Sociologie <span class="highlight-accent">Rencontre le Code</span></h2>
+                <span class="section-subtitle reveal">Ma démarche et ma méthode de création de valeur logicielle.</span>
                 
                 <div class="about-container">
                     <div class="about-content reveal">
-                        <p class="about-description" style="font-size: 1.15rem; font-weight: 500;">
-                            « Une solution technique n'a de valeur que si elle est acceptée par ses utilisateurs finaux. »
+                        <p class="about-description" style="font-size: 1.15rem; font-weight: 500; color: var(--dark); padding-left: 15px; border-left: 4px solid var(--accent);">
+                            "Le code construit l'outil, l'enquête sociologique assure son adoption réelle."
                         </p>
-                        <p class="about-description">
-                            Mon cursus a démarré avec des enquêtes de terrain (ex: la gestion socio-environnementale du lac Warouwaye). Cette expérience façonne 100% de mes architectures de code : avant d'écrire la moindre ligne de Python ou PHP, j'intègre les dynamiques de votre métier.
+                        <p class="about-description" style="margin-top:20px;">
+                            Mon parcours atypique a forgé mon expertise. Mon mémoire sur la <strong>gestion socio-environnementale du lac Warouwaye</strong> m'a appris à écouter les vrais besoins d'une communauté. 
+                            Aujourd'hui, avant de concevoir la maquette d'un logiciel métier comme <span style="font-weight: 600;">Sama Daara</span> ou l'architecture serveur d'une App PWA pour un commerce comme <span style="font-weight: 600;">Mame Lamp</span>, j'analyse minutieusement les usages, le contexte technologique (réseau lent, terminaux variés) et l'expérience recherchée par l'utilisateur final sénégalais et global.
                         </p>
-                        <p class="about-description">
-                            C'est pourquoi une entreprise du BTP (Touba BTP) me fait confiance pour son image corporate, ou qu'une boutique de proximité (Mame Lamp) adopte mes plateformes e-commerce PWA.
-                        </p>
-                        <div style="display:flex; gap: 15px; margin-top:30px">
-                            <a href="assets/CV_Yankhoba_Bakhoum.pdf" target="_blank" class="btn"><i class="fas fa-file-pdf"></i> Mon CV Expert</a>
-                            <a href="https://github.com/votre_pseudo" class="btn btn-outline"><i class="fab fa-github"></i> Mon Github</a>
+                        <div style="display: flex; gap: 15px; margin-top: 35px; flex-wrap: wrap;">
+                            <a href="#" class="btn" onclick="alert('Ajoutez le fichier CV_Yankhoba_Bakhoum.pdf dans vos dossiers !')">
+                                <i class="fas fa-file-pdf"></i> Télécharger mon CV
+                            </a>
+                            <a href="https://github.com/votre_profil" target="_blank" class="btn btn-outline" style="border-color: #333; color: #333;">
+                                <i class="fab fa-github"></i> Visiter mon GitHub
+                            </a>
                         </div>
                     </div>
                     
-                    <div class="research-card reveal">
-                        <h3 class="research-title"><i class="fas fa-layer-group"></i> Stack de l'Avenir</h3>
-                        <h4>Créer sans friction</h3>
-                        <p>Mon architecture s'articule sur des outils solides pour que la performance technique passe en second plan face à l'utilité ressentie : PWA ultra-rapides, Logiciels métier en local/Python (pour la sécurité des données) et interfaces WordPress entièrement détachées des contraintes standards (Thèmes "from scratch").</p>
+                    <div class="research-card glass-card reveal">
+                        <h3 class="research-title" style="margin-bottom: 5px;"><i class="fas fa-microscope" style="color:var(--primary);"></i> L'Ingénierie Agile</h3>
+                        <h4 style="margin-bottom:20px; color: var(--accent); font-size:1.1rem; font-weight:600;">Ce que je livre concrètement à mes clients</h4>
+                        <ul style="list-style: none; padding:0; margin:0; line-height: 2;">
+                            <li><i class="fas fa-check-circle" style="color:#25D366; margin-right: 10px;"></i><strong>Sur-Mesure:</strong> Fini les templates rigides (Themes WordPress de zéro).</li>
+                            <li><i class="fas fa-check-circle" style="color:#25D366; margin-right: 10px;"></i><strong>PWA Focus:</strong> Sites convertibles en applications en 1 clic.</li>
+                            <li><i class="fas fa-check-circle" style="color:#25D366; margin-right: 10px;"></i><strong>UX Authentique:</strong> Des interfaces respectant vos équipes.</li>
+                            <li><i class="fas fa-check-circle" style="color:#25D366; margin-right: 10px;"></i><strong>Stabilité Offline:</strong> Pensé pour palier aux baisses réseau.</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Modals dynamiques inclus proprement -->
-        <div id="project-modal" class="modal">
-            <div class="modal-content">
-                <span class="close-modal">&times;</span>
-                <div class="modal-project-details">
-                    <h2 id="modal-project-title" style="font-family: var(--font-heading);"></h2>
-                    <div class="modal-project-images">
-                        <img id="modal-project-main-image" src="" alt="Aperçu du projet">
+        <!-- Section Compétences Techniques (Réintégrée de la v1) -->
+        <section class="skills" id="competences" style="padding-top: 50px;">
+            <div class="container">
+                <h2 class="section-title reveal">Écosystème Technologique</h2>
+                <span class="section-subtitle reveal">Maîtrise d'une stack complète, couplée à une analyse pointue.</span>
+                
+                <div class="skills-container">
+                    <!-- Carte Dev / IT -->
+                    <div class="skill-card glass-card reveal" style="padding: 40px;">
+                        <h3 class="skill-title" style="margin-bottom: 25px;"><i class="fas fa-code"></i> Engineering Full-Stack</h3>
+                        <div class="skill-list" style="display: flex; flex-direction: column; gap: 18px;">
+                            <div style="display:flex; align-items:center; gap: 15px; border-bottom:1px solid rgba(0,0,0,0.05); padding-bottom: 12px;">
+                                <i class="fab fa-wordpress" style="font-size:1.8rem; color:#21759b; width:30px;"></i> 
+                                <span style="font-weight: 500;"><strong>CMS & PWA:</strong> WP (Thèmes Custom), PHP, JS, WooCommerce</span>
+                            </div>
+                            <div style="display:flex; align-items:center; gap: 15px; border-bottom:1px solid rgba(0,0,0,0.05); padding-bottom: 12px;">
+                                <img src="https://img.icons8.com/color/48/000000/flutter.png" alt="flutter" style="width:30px;"/>
+                                <span style="font-weight: 500;"><strong>Mobile:</strong> Flutter (Dart), Intégrations API</span>
+                            </div>
+                            <div style="display:flex; align-items:center; gap: 15px; border-bottom:1px solid rgba(0,0,0,0.05); padding-bottom: 12px;">
+                                <i class="fab fa-python" style="font-size:1.8rem; color:#4B8BBE; width:30px;"></i>
+                                <span style="font-weight: 500;"><strong>Python Apps:</strong> PySide6/PyQt (Desktop), Django, WebScraping</span>
+                            </div>
+                            <div style="display:flex; align-items:center; gap: 15px; padding-bottom: 8px;">
+                                <i class="fas fa-database" style="font-size:1.5rem; color:#f29111; width:30px;"></i>
+                                <span style="font-weight: 500;"><strong>DevOps & BDD:</strong> SQLite, MySQL, Git, Docker, Serveurs locaux</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="modal-project-info">
-                        <p id="modal-project-description" style="font-size:1.1rem; color: #475569; margin-bottom: 20px; text-align: left;"></p>
-                        <div class="modal-project-links" style="display:flex; justify-content:center; gap: 15px; margin-top: 20px;">
-                            <a href="#" id="modal-project-live-link" target="_blank" class="btn btn-primary" style="display: none;"><i class="fas fa-globe"></i> Visiter en ligne</a>
-                            <a href="#" id="modal-project-github-link" target="_blank" class="btn btn-outline" style="display: none;"><i class="fab fa-github"></i> Source GitHub</a>
+                    
+                    <!-- Carte Analyse / Sciences Humaines -->
+                    <div class="skill-card glass-card reveal" style="padding: 40px;">
+                        <h3 class="skill-title" style="margin-bottom: 25px;"><i class="fas fa-users-viewfinder"></i> Recherche & UX/Socio</h3>
+                        <div class="skill-list" style="display: flex; flex-direction: column; gap: 18px;">
+                            <div style="display:flex; align-items:center; gap: 15px; border-bottom:1px solid rgba(0,0,0,0.05); padding-bottom: 12px;">
+                                <i class="fas fa-search-location" style="font-size:1.6rem; color:var(--secondary); width:30px;"></i>
+                                <span style="font-weight: 500;"><strong>Qualitative/Quantitative:</strong> Entretiens, statistiques sociales, enquêtes terrain</span>
+                            </div>
+                            <div style="display:flex; align-items:center; gap: 15px; border-bottom:1px solid rgba(0,0,0,0.05); padding-bottom: 12px;">
+                                <i class="fas fa-user-circle" style="font-size:1.6rem; color:var(--secondary); width:30px;"></i>
+                                <span style="font-weight: 500;"><strong>Design UX (User Research):</strong> Définition des Personas, Map Parcours client</span>
+                            </div>
+                            <div style="display:flex; align-items:center; gap: 15px; padding-bottom: 8px;">
+                                <i class="fas fa-scale-balanced" style="font-size:1.4rem; color:var(--secondary); width:30px;"></i>
+                                <span style="font-weight: 500;"><strong>Éthique Numérique:</strong> Réduction des frictions, Analyse d'impact d'intégration des SI</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Logiciel du Portfolio & Contacts Modals (Code Nettoyé) -->
-        <script>
-            // Database des Projets mise à jour !
-            const projectDetails = {
-                toubabtp: {
-                    title: "Touba BTP - Site Vitrine Institutionnel",
-                    description: "Conception complète du thème WordPress pour l'entreprise Touba BTP. Développement Front-end de la maquette jusqu'à l'intégration PHP dans l'écosystème WordPress. Focus majeur mis sur l'impact visuel et les temps de chargement pour un SEO optimisé au Sénégal.",
-                    mainImage: "assets/images/projet_toubabtp.png",
-                    liveLink: "https://touba-btp.com/",
-                    githubLink: ""
-                },
-                mamelamp: {
-                    title: "Mame Lamp - Quincaillerie E-commerce (PWA)",
-                    description: "Développement web de l'interface de commande en ligne pour Mame Lamp. Construction avec WooCommerce mais optimisé Mobile-First via des technos PWA (Progressive Web App). Cela permet aux utilisateurs de mettre le site comme application sur leur accueil smartphone, sans passer par l'App Store, pour un e-commerce local fluide et innovant.",
-                    mainImage: "assets/images/projet_mamelamp.png",
-                    liveLink: "https://quincaillerie-mamelamp.com/",
-                    githubLink: ""
-                },
-                restobi: {
-                    title: "Resto Bi - Fast Food Mobile App",
-                    description: "Application Caisse (Point of Sale) Flutter ultra performante conçue spécialement pour l'univers de la restauration rapide. De la validation de commande par le serveur, à l'impression automatique pour la cuisine (synchronisation temps réel). L'UX est adaptée pour réduire l'erreur de saisie.",
-                    mainImage: "assets/images/projet_restobi.png",
-                    liveLink: "", // Si vous avez une démo sur les stores, mettez le lien.
-                    githubLink: ""
-                },
-                sendiwaan: {
-                    title: "Sendiwaan - Petites Annonces Locales",
-                    description: "Une plateforme sécurisée d'échanges, favorisant la revente ou le troc local...",
-                    mainImage: "assets/images/projet_sendiwaan.png",
-                    liveLink: "http://www.sendiwaan.com",
-                    githubLink: ""
-                },
-                samadaara: {
-                    title: "Sama Daara ERP (Environnement PySide6)",
-                    description: "Application lourde installée sur le système de l'école (mode offline priorisé). Conception sociotechnique protégeant l'anonymat de données de centaines de talibés (élèves).",
-                    mainImage: "assets/images/projet_samadaara.png",
-                    liveLink: "",
-                    githubLink: "https://github.com/votre_github_Sama_Daara"
-                },
-                scrcpygui: {
-                    title: "Interface Android Developer Tools (Scrcpy GUI)",
-                    description: "Encapsulation via PyQt de l'utilitaire ligne de commande Scrcpy. Projet très bien perçu dans l'univers DevOps/QA pour tester des interfaces PWA / Flutter physiquement et les retransmettre en Live Meet.",
-                    mainImage: "assets/images/projet_scrcpygui.png",
-                    liveLink: "",
-                    githubLink: "https://github.com/votre_github_Scrcpy"
-                }
-            };
-
-            const modal = document.getElementById('project-modal');
-            document.querySelectorAll('.project-card').forEach(card => {
-                card.addEventListener('click', () => {
-                    const pj = projectDetails[card.dataset.project];
-                    document.getElementById('modal-project-title').textContent = pj.title;
-                    document.getElementById('modal-project-description').textContent = pj.description;
-                    document.getElementById('modal-project-main-image').src = pj.mainImage;
-                    
-                    // Gestion intelligente de l'affichage des boutons 
-                    const liveBtn = document.getElementById('modal-project-live-link');
-                    const gitBtn = document.getElementById('modal-project-github-link');
-                    
-                    if(pj.liveLink) { liveBtn.style.display = 'inline-flex'; liveBtn.href = pj.liveLink; } else { liveBtn.style.display = 'none'; }
-                    if(pj.githubLink) { gitBtn.style.display = 'inline-flex'; gitBtn.href = pj.githubLink; } else { gitBtn.style.display = 'none'; }
-                    
-                    modal.style.display = 'block';
-                });
-            });
-
-            document.querySelector('.close-modal').addEventListener('click', () => modal.style.display = 'none');
-            window.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
-        </script>
-
-        <!-- Contact Section Repensée -->
-        <section class="contact" id="contact">
+        <!-- Section Contact Direct / Whatsapp -->
+        <section class="contact" id="contact" style="position:relative; overflow:hidden;">
+            <!-- Orbe pour contact section uniquement -->
+            <div style="position:absolute; width: 600px; height:600px; background:radial-gradient(circle, rgba(37,211,102,0.1) 0%, rgba(255,255,255,0) 70%); top:-200px; right:-200px; z-index:-1;"></div>
+            
             <div class="container">
-                <div class="contact-container" style="align-items: center;">
-                    <div class="contact-info reveal">
-                        <h2 style="font-size:2.5rem; margin-bottom: 20px; font-family:var(--font-heading)">Vous avez un <span class="highlight-accent">grand projet</span> ?</h2>
-                        <p class="contact-description" style="margin-bottom: 20px;">Je limite le nombre de projets en parallèle pour fournir à mes clients actuels des livrables sans compromis (WordPress pur code, Application iOS/Android). Confiez-moi vos cahiers des charges.</p>
+                <div class="contact-container">
+                    <div class="contact-info reveal glass-card" style="padding: 40px; border-width: 0; box-shadow: none; background: transparent;">
+                        <h2 style="font-size:2.8rem; margin-bottom: 25px; line-height:1.2;">Un besoin logiciel ?<br>Une idée de refonte ?<br><span class="highlight-accent">Démarrons l'étude.</span></h2>
+                        <p class="contact-description" style="margin-bottom: 30px; font-size:1.1rem; max-width:90%;">
+                            Je privilégie les projets stimulants. Si vous souhaitez qu'une équipe compétente ou un Freelance Senior étudie l'architecture de votre prochain App/Site avec l'oeil du sociologue et la main du dev technique, discutons-en en direct.
+                        </p>
                         
-                        <div class="contact-detail">
-                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                            <div class="contact-text"><h4 style="margin:0;">Email Professionnel</h4><p style="margin:0; font-size:1.1rem; color:var(--primary)">yankhoba30@gmail.com</p></div>
+                        <div style="display: flex; align-items:center; gap:15px; margin-bottom: 20px;">
+                            <div class="contact-icon" style="color:var(--primary); background:rgba(37,99,235,0.1)"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <p style="font-size: 0.9rem; color:#64748b; margin:0;">Écrivez-moi un courriel</p>
+                                <a href="mailto:yankhoba30@gmail.com" style="text-decoration:none; font-size: 1.15rem; font-weight:600; color:var(--dark);">yankhoba30@gmail.com</a>
+                            </div>
                         </div>
-                        <div class="contact-detail">
-                            <div class="contact-icon" style="background: rgba(37, 211, 102, 0.1); color: #25D366"><i class="fab fa-whatsapp"></i></div>
-                            <div class="contact-text"><h4 style="margin:0;">Numéro Direct / Whatsapp</h4><p style="margin:0; font-size:1.1rem;">+221 78 605 69 14</p></div>
+                        <div style="display: flex; align-items:center; gap:15px;">
+                            <div class="contact-icon" style="color:#25D366; background:rgba(37,211,102,0.15)"><i class="fab fa-whatsapp" style="font-size: 1.6rem;"></i></div>
+                            <div>
+                                <p style="font-size: 0.9rem; color:#64748b; margin:0;">Appelez-moi directement</p>
+                                <a href="https://wa.me/221786056914" style="text-decoration:none; font-size: 1.15rem; font-weight:600; color:var(--dark);">+221 78 605 69 14</a>
+                            </div>
                         </div>
                     </div>
                     
-                    <!-- WhatsApp Premium Form -->
-                    <div class="contact-form reveal">
+                    <div class="contact-form glass-card reveal" style="padding: 45px;">
+                        <h3 style="margin-bottom: 25px; text-align: center; font-size: 1.8rem; color: var(--dark);">Ou contactez-moi en 1 clic</h3>
                         <form id="whatsapp-form">
-                            <h3 style="margin-bottom:20px; text-align:center;">Ligne Prioritaire Directe</h3>
-                            <div class="form-group">
-                                <input type="text" id="fullName" placeholder="Qui êtes-vous ?" class="form-control" required style="background:var(--light);">
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <input type="text" id="fullName" placeholder="Votre nom & Prénom (Requis)" class="form-control" required>
                             </div>
-                            <div class="form-group">
-                                <input type="tel" id="phoneNumber" placeholder="Société ou Fonction" class="form-control" style="background:var(--light);">
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <input type="text" id="companyRole" placeholder="Société ou type de projet (Ex: Restaurant, BTP...)" class="form-control">
                             </div>
-                            <div class="form-group">
-                                <textarea id="message" placeholder="Le résumé de votre besoin (App mobile ? E-commerce ? Site institutionnel ?)" rows="4" class="form-control" required style="background:var(--light);"></textarea>
+                            <div class="form-group" style="margin-bottom: 25px;">
+                                <textarea id="message" placeholder="Détaillez un peu vos objectifs ou l'état d'avancement de vos besoins techniques..." rows="5" class="form-control" required style="resize:none;"></textarea>
                             </div>
-                            <button type="button" id="sendWhatsAppBtn" class="btn btn-whatsapp" style="width:100%; height:55px; border-radius:30px; font-size:1.1rem; box-shadow: 0 10px 20px rgba(37,211,102,0.3)">
-                                Envoyer & Chatter <i class="fab fa-whatsapp"></i>
+                            <button type="button" id="sendWhatsAppBtn" class="btn" style="width: 100%; height: 55px; font-size:1.15rem; border-radius: 12px; background: linear-gradient(90deg, #128C7E, #25D366); border:none;">
+                                Ouvrir le chat WhatsApp <i class="fab fa-whatsapp" style="font-size:1.4rem;"></i>
                             </button>
+                            <p style="text-align: center; margin-top: 15px; font-size:0.8rem; color: #64748b;"><i class="fas fa-lock"></i> Vous serez redirigé sur l'App WhatsApp vers le +221786056914</p>
                         </form>
                     </div>
-
-                    <script>
-                        document.getElementById('sendWhatsAppBtn').addEventListener('click', function(e) {
-                            e.preventDefault();
-                            const nom = document.getElementById('fullName').value;
-                            const ctx = document.getElementById('phoneNumber').value;
-                            const msg = document.getElementById('message').value;
-                            if(!nom || !msg) { alert('Prénom et message requis !'); return; }
-                            const texte = encodeURIComponent(`Nouvelle touche Premium de *${nom}* (${ctx}) \n\n📋 *Message:* \n${msg}`);
-                            window.open(`https://wa.me/+221786056914?text=${texte}`, '_blank');
-                        });
-                    </script>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <!-- Footer Simplifié Ultra Chic -->
-    <footer style="padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.05);">
-        <div class="container" style="text-align:center; display:flex; flex-direction:column; align-items:center; gap: 20px;">
-            <a href="#accueil" class="logo" style="color:white; filter:brightness(2);"><i class="fas fa-code"></i> Y. Bakhoum</a>
-            <p style="color:var(--gray); max-width:600px;">Solutions Applicatives et Web - Pensées en local, construites pour un niveau global.</p>
-            <div class="social-links" style="margin-top:0;">
-                <a href="https://www.linkedin.com/in/yankhoba-bakhoum-7b9074219/" target="_blank" class="social-link" style="color:#0077b5; background:#fff"><i class="fab fa-linkedin"></i></a>
-                <a href="#" class="social-link" style="color:#333; background:#fff"><i class="fab fa-github"></i></a>
+    <!-- Le système de Modal (Gardé pour sa souplesse sans alourdir le JS principal) -->
+    <div id="project-modal" class="modal">
+        <span class="close-modal"><i class="fas fa-times"></i></span>
+        <div class="modal-content">
+            <div class="modal-project-images" style="background:#f1f5f9; text-align:center;">
+                <img id="modal-project-main-image" src="" alt="Détail de mon projet">
             </div>
-            <div class="copyright">© 2025 Tous droits réservés.</div>
+            <div class="modal-project-info" style="position:relative;">
+                <h2 id="modal-project-title" style="font-size: 2.2rem; margin-bottom: 15px; color:var(--dark);"></h2>
+                <div id="modal-project-description" style="font-size: 1.15rem; color: #475569; line-height: 1.8; margin-bottom: 30px;"></div>
+                
+                <div style="display:flex; gap:15px;">
+                    <a href="#" id="modal-project-live-link" target="_blank" class="btn"><i class="fas fa-globe"></i> Explorer le produit final</a>
+                    <a href="#" id="modal-project-github-link" target="_blank" class="btn btn-outline"><i class="fab fa-github"></i> Explorer le code</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals JavaScript logic et Contact Logic integrés -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            /* ======= BDD DES PROJETS ======= */
+            const projectDatabase = {
+                toubabtp: {
+                    title: "Touba BTP Sénégal",
+                    desc: "Développement intégral Front & Back sur un cœur WordPress pour assurer flexibilité au client tout en codant le template visuel à la main. Il y intègre la galerie fluide de leurs lourds chantiers de construction. Un design pro valorisant l'expertise BTP locale face aux partenaires étrangers.",
+                    image: "assets/images/projet_toubabtp.png",
+                    live: "https://touba-btp.com/", git: ""
+                },
+                mamelamp: {
+                    title: "E-commerce : Quincaillerie Mame Lamp",
+                    desc: "Intégration et dev de l'écosystème WooCommerce adapté en Progressive Web App (PWA). Résultat : les acheteurs utilisent le site presque comme une app native mobile téléchargée avec fonctionnement hors-ligne pour la consultation. Stratégie redoutable au Sénégal.",
+                    image: "assets/images/projet_mamelamp.png",
+                    live: "https://quincaillerie-mamelamp.com/", git: ""
+                },
+                restobi: {
+                    title: "Application Fast Food 'Resto Bi'",
+                    desc: "Développée intégralement via Flutter et l'environnement mobile natif. Ce logiciel POS sert en cuisine et salle : fluidification de la création du panier côté comptoir, émission automatique du bon en cuisine via un pont synchronisé. UX travaillée contre la fatigue et la panique des heures de rush.",
+                    image: "assets/images/projet_restobi.png",
+                    live: "", git: "" // Remplir le GIT ici s'il est open !
+                },
+                sendiwaan: {
+                    title: "Sendiwaan.com",
+                    desc: "Plateforme robuste et scalable (basée web) offrant un dépôt d'annonce communautaire ergonomique. Interface riche via Javascript pour l'instantanéité des images déposées. Axé ré-usage d'objets.",
+                    image: "assets/images/projet_sendiwaan.png",
+                    live: "http://www.sendiwaan.com", git: ""
+                },
+                samadaara: {
+                    title: "Sama Daara Logiciel Gestion Python",
+                    desc: "L'administration des daaras nécessitait un produit offline résilient avec la culture du Ndiang. Codé sous l'environnement local très performant PySide6 (SQLite embarquée). Gestion ultra-fluide sans bugs ni lags et non soumise aux quotas data des forfaits internet locaux.",
+                    image: "assets/images/projet_samadaara.png",
+                    live: "", git: "https://github.com/votre_profil" // Placer Github 
+                },
+                scrcpygui: {
+                    title: "Outil Développeur UI",
+                    desc: "Coup de main à la communauté OpenSource. Habillage sous l'excellent framework Python du système scrcpy de mirroring mobile. Réglages des birates, d'encodage... Facilite la vie de l'analyste mobile.",
+                    image: "assets/images/projet_scrcpygui.png",
+                    live: "", git: "https://github.com/votre_profil"
+                }
+            };
+
+            const theModal = document.getElementById('project-modal');
+            const theTitle = document.getElementById('modal-project-title');
+            const theDesc = document.getElementById('modal-project-description');
+            const theImage = document.getElementById('modal-project-main-image');
+            const theLiveLink = document.getElementById('modal-project-live-link');
+            const theGitLink = document.getElementById('modal-project-github-link');
+            const btnCloseModal = document.querySelector('.close-modal');
+
+            /* Actions sur clique projets */
+            document.querySelectorAll('.project-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const projet = projectDatabase[card.getAttribute('data-project')];
+                    if(!projet) return;
+
+                    theTitle.innerHTML = projet.title;
+                    theDesc.innerHTML = projet.desc;
+                    theImage.src = projet.image;
+
+                    if(projet.live !== "") { theLiveLink.style.display = 'inline-flex'; theLiveLink.href = projet.live; } else { theLiveLink.style.display = 'none'; }
+                    if(projet.git !== "") { theGitLink.style.display = 'inline-flex'; theGitLink.href = projet.git; } else { theGitLink.style.display = 'none'; }
+
+                    theModal.style.display = 'block';
+                });
+            });
+
+            btnCloseModal.addEventListener('click', () => theModal.style.display = 'none');
+            window.addEventListener('click', (e) => { if(e.target === theModal) theModal.style.display = 'none'; });
+
+
+            /* ======= ACTION WHATSAPP CHAT ======== */
+            const wsBtn = document.getElementById('sendWhatsAppBtn');
+            wsBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                let clientNom = document.getElementById('fullName').value.trim();
+                let clientType = document.getElementById('companyRole').value.trim();
+                let clientMsg = document.getElementById('message').value.trim();
+
+                if(clientNom === "" || clientMsg === "") { alert("Veuillez remplir à minima le nom et votre description. Merci !"); return; }
+                
+                let wappNumber = "221786056914";
+                let fullTexte = `Nouveau Client B2B via Portfolio\n\n*🙋‍♂️ Nom:* ${clientNom}\n*🏢 Projet:* ${clientType}\n\n*📝 Description :*\n"${clientMsg}"`;
+                window.open(`https://wa.me/${wappNumber}?text=${encodeURIComponent(fullTexte)}`, '_blank');
+            });
+        });
+    </script>
+
+    <!-- Footer Super Clean & SEO minimaliste -->
+    <footer style="background-color: var(--dark); padding: 50px 0; color: #cbd5e1; border-top: 3px solid var(--accent);">
+        <div class="container" style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 20px;">
+            <a href="#accueil" style="font-size: 1.8rem; font-weight: 800; color: #fff; text-decoration: none; font-family:var(--font-heading);"><i class="fas fa-layer-group" style="color:var(--accent);"></i> Y. Bakhoum</a>
+            <p style="max-width: 600px; font-size: 1rem;">L'alliance de l'intelligence technique web/mobile et de la perspective sociétale des technologies, conçue depuis Dakar pour des acteurs économiques exigeants.</p>
+            <div style="display: flex; gap: 15px; margin-top:10px;">
+                <a href="https://www.linkedin.com/in/yankhoba-bakhoum-7b9074219/" target="_blank" style="background: rgba(255,255,255,0.1); width: 45px; height: 45px; display:flex; justify-content:center; align-items:center; border-radius: 50%; color: #fff; text-decoration:none; transition: 0.3s; border:1px solid rgba(255,255,255,0.2);">
+                    <i class="fab fa-linkedin" style="font-size: 1.2rem;"></i>
+                </a>
+                <a href="#" target="_blank" style="background: rgba(255,255,255,0.1); width: 45px; height: 45px; display:flex; justify-content:center; align-items:center; border-radius: 50%; color: #fff; text-decoration:none; transition: 0.3s; border:1px solid rgba(255,255,255,0.2);">
+                    <i class="fab fa-github" style="font-size: 1.2rem;"></i>
+                </a>
+            </div>
+            <div style="margin-top: 30px; font-size: 0.8rem; color: #475569; padding-top:20px; border-top: 1px solid rgba(255,255,255,0.05); width:100%;">
+                &copy; 2025 Yankhoba Bakhoum — Site personnel à hautes performances HTML/JS native.
+            </div>
         </div>
     </footer>
 
+    <!-- Initialisation effets externes (NavBar + Reveal) -->
     <script src="js/script.js" defer></script>
 </body>
 </html>
