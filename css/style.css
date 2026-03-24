@@ -5,15 +5,15 @@
    ------------------
    1.  Variables & Global (Typographie Premium)
    2.  Animations (Orbes, Glass, Reveal)
-   3.  Utilitaires (container, titles, badges, boutons)
+   3.  Utilitaires (Container, Titres, Badges, Boutons)
    4.  Header & Navigation
    5.  Section Accueil (Hero)
    6.  Section Projets
    7.  Section À Propos
    8.  Section Compétences
    9.  Section Contact
-   10. Fenêtres Modales (Projets)
-   11. Responsive (Mobiles & Tablettes)
+   10. Fenêtres Modales (Pop-ups de Projets)
+   11. Responsive Mobile & Tablettes (Strict)
 */
 
 
@@ -54,6 +54,7 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    overflow-x: hidden; /* Empêche les décalages sur la droite */
 }
 
 body {
@@ -63,7 +64,6 @@ body {
     line-height: 1.7;
     overflow-x: hidden;
     position: relative;
-    /* Discrète trame de fond texturée pour éviter l'effet "blanc vide" */
     background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
     background-size: 40px 40px;
 }
@@ -86,7 +86,7 @@ h1, h2, h3, h4, h5 {
     filter: blur(100px);
     z-index: -3;
     animation: pulse-orb 15s alternate infinite ease-in-out;
-    pointer-events: none; /* Ne gêne pas le clic */
+    pointer-events: none; /* Les orbes ne bloquent pas le clic sur mobile */
 }
 .orb-1 { width: 500px; height: 500px; background: rgba(37, 99, 235, 0.15); top: -100px; left: -100px; }
 .orb-2 { width: 600px; height: 600px; background: rgba(124, 58, 237, 0.1); top: 30%; right: -200px; }
@@ -97,7 +97,7 @@ h1, h2, h3, h4, h5 {
     100% { transform: scale(1.1) translate(40px, -40px); }
 }
 
-/* Base Glassmorphism réutilisable (Cartes de compétences, etc) */
+/* Base Glassmorphism réutilisable */
 .glass-card {
     background: var(--glass-bg);
     backdrop-filter: blur(16px);
@@ -122,7 +122,7 @@ h1, h2, h3, h4, h5 {
     font-weight: 800;
 }
 
-/* Effet d'apparition au scroll (Géré par JS) */
+/* Effet Reveal */
 .reveal {
     opacity: 0;
     transform: translateY(40px);
@@ -141,14 +141,14 @@ h1, h2, h3, h4, h5 {
     width: 90%;
     max-width: var(--container-width);
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 15px;
 }
 
 section {
     padding: 100px 0;
 }
 
-/* Titres des Sections */
+/* Titres */
 .section-title {
     font-size: 3rem;
     text-align: center;
@@ -169,7 +169,7 @@ section {
     margin-right: auto;
 }
 
-/* Badge (Statut Héro) */
+/* Badge Statut Pro */
 .pro-badge {
     display: inline-flex;
     align-items: center;
@@ -200,7 +200,7 @@ section {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 16px 36px;
+    padding: 16px 32px;
     background: var(--primary);
     color: white;
     border-radius: 50px;
@@ -209,7 +209,7 @@ section {
     transition: var(--transition);
     border: 2px solid var(--primary);
     cursor: pointer;
-    gap: 12px;
+    gap: 10px;
     box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
     font-family: var(--font-body);
 }
@@ -253,7 +253,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 18px 0;
+    padding: 15px 0;
 }
 
 .logo {
@@ -270,7 +270,7 @@ header {
 }
 
 .nav-menu { display: flex; list-style: none; }
-.nav-item { margin-left: 35px; }
+.nav-item { margin-left: 30px; }
 .nav-link {
     color: #475569;
     text-decoration: none;
@@ -291,7 +291,7 @@ header {
 
 .nav-toggle {
     display: none;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     cursor: pointer;
     color: var(--dark);
 }
@@ -301,7 +301,7 @@ header {
    5. Section Accueil (Hero) 
 ========================================================== */
 .hero {
-    padding: 220px 0 120px;
+    padding: 200px 0 120px;
     position: relative;
 }
 
@@ -333,8 +333,9 @@ header {
 
 .profile-img-container {
     padding: 15px;
-    border-radius: 20px;
+    border-radius: 24px;
     transform: perspective(1000px) rotateY(-5deg);
+    transition: var(--transition);
 }
 
 .profile-img-container:hover {
@@ -343,19 +344,19 @@ header {
 
 .profile-img {
     width: 100%;
-    max-width: 480px;
+    max-width: 450px;
     display: block;
     border-radius: 12px;
 }
 
 
 /* ==========================================================
-   6. Section Projets Phares 
+   6. Section Projets 
 ========================================================== */
 .projects-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-    gap: 35px;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 30px;
 }
 
 .project-card {
@@ -374,105 +375,58 @@ header {
 
 .project-img {
     width: 100%;
-    height: 250px;
+    height: 240px;
     border-radius: 16px;
     object-fit: cover;
     transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-.project-card:hover .project-img {
-    transform: scale(1.04);
-}
+.project-card:hover .project-img { transform: scale(1.04); }
 
 .project-type {
-    position: absolute;
-    top: 25px; left: 25px;
-    background: rgba(15, 23, 42, 0.85);
-    backdrop-filter: blur(8px);
-    color: #fff;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    position: absolute; top: 25px; left: 25px;
+    background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px);
+    color: #fff; padding: 6px 14px;
+    border-radius: 20px; font-size: 0.8rem; font-weight: 600;
 }
 .project-type i { margin-right: 6px; color: var(--accent); }
 
 .project-content {
     padding: 30px;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
+    display: flex; flex-direction: column; flex-grow: 1;
 }
 
-.project-title { font-size: 1.5rem; letter-spacing: -0.5px; color: var(--dark); }
-.project-description { color: #475569; font-size: 1.05rem; flex-grow: 1; margin-top: 10px; }
+.project-title { font-size: 1.5rem; letter-spacing: -0.5px; }
+.project-description { color: #475569; font-size: 1.05rem; margin-top: 10px; }
 
 .project-tags {
-    margin-top: auto;
-    padding-top: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+    margin-top: auto; padding-top: 20px;
+    display: flex; flex-wrap: wrap; gap: 8px;
 }
 
 .tag {
-    background: #f1f5f9;
+    background: rgba(37, 99, 235, 0.08);
     color: var(--primary-dark);
     padding: 6px 14px;
     border-radius: 8px;
     font-size: 0.85rem;
     font-weight: 600;
-    border: 1px solid rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.03);
 }
 
 
 /* ==========================================================
-   7. Section À Propos (Sociologie / UX)
+   7 & 8. Sections À Propos & Compétences 
 ========================================================== */
 .about-container {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 70px;
-    align-items: center;
+    display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: center;
 }
-
-.about-description {
-    font-size: 1.15rem;
-    color: #475569;
-    margin-bottom: 25px;
-    line-height: 1.8;
-}
-
-.research-card ul li {
-    font-size: 1.05rem;
-    color: var(--dark);
-    margin-bottom: 12px;
-}
-
-
-/* ==========================================================
-   8. Section Compétences
-========================================================== */
 .skills-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 40px;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 30px;
 }
 
 .skill-title {
-    font-size: 1.8rem;
-    color: var(--dark);
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    letter-spacing: -0.5px;
-}
-.skill-title i { color: var(--primary); }
-
-.skill-list div span {
-    font-size: 1.1rem;
-    color: #334155;
+    font-size: 1.6rem; color: var(--dark);
+    display: flex; align-items: center; gap: 15px; margin-bottom: 25px;
 }
 
 
@@ -480,35 +434,23 @@ header {
    9. Section Contact
 ========================================================== */
 .contact-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;
 }
 
 .contact-icon {
     font-size: 1.4rem;
-    width: 55px; height: 55px;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
+    width: 50px; height: 50px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
 
 .form-control {
     width: 100%;
-    background: #fff;
-    border: 1px solid rgba(0,0,0,0.1);
-    padding: 18px 20px;
-    border-radius: 12px;
-    font-size: 1rem;
-    font-family: var(--font-body);
-    transition: var(--transition);
+    background: #fff; border: 1px solid rgba(0,0,0,0.1);
+    padding: 16px 20px; border-radius: 12px; font-size: 1rem;
+    font-family: var(--font-body); transition: var(--transition);
 }
-
 .form-control:focus {
-    background: #fff;
-    border-color: var(--primary);
-    outline: none;
+    border-color: var(--primary); outline: none;
     box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
 }
 
@@ -517,135 +459,135 @@ header {
    10. Modals / Pop-ups
 ========================================================== */
 .modal {
-    display: none;
-    position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%;
+    display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%;
     background-color: rgba(15, 23, 42, 0.85);
     backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-    overflow-y: auto; /* Autorise le défilement */
-    -webkit-overflow-scrolling: touch; /* Scroll fluide sur iPhone */
+    overflow-y: auto; -webkit-overflow-scrolling: touch; /* Anti-bloquage iOS */
+    padding-top: 2vh;
 }
 
 .modal-content {
     background: #fff;
-    margin: 5vh auto 5vh auto; /* Des marges propres en haut et bas */
-    padding: 0;
+    margin: 4vh auto; padding: 0;
     border-radius: var(--border-radius);
-    width: 90%; max-width: 900px;
+    width: 90%; max-width: 800px;
     position: relative;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
-    animation: slideUp 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+    animation: slideUp 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
 
 @keyframes slideUp {
-    from { transform: translateY(50px) scale(0.98); opacity: 0; }
+    from { transform: translateY(40px) scale(0.98); opacity: 0; }
     to { transform: translateY(0) scale(1); opacity: 1; }
 }
 
 .close-modal {
-    position: absolute; top: -15px; right: -15px;
+    position: absolute; top: 20px; right: 20px; /* Placé fermement à l'intérieur */
     font-size: 20px; color: #fff; z-index: 2010;
-    cursor: pointer; background: var(--primary);
-    width: 45px; height: 45px;
-    border-radius: 50%; display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    border: 3px solid #fff;
-    transition: transform 0.3s;
+    cursor: pointer; background: rgba(15, 23, 42, 0.6);
+    width: 40px; height: 40px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    border: 2px solid #fff; transition: var(--transition);
+    backdrop-filter: blur(4px);
 }
-.close-modal:hover { transform: scale(1.1) rotate(90deg); background: #ef4444; border-color: #ef4444; }
+.close-modal:hover { background: #ef4444; border-color: #ef4444; transform: rotate(90deg); }
 
 .modal-project-images img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    border-radius: 24px 24px 0 0;
+    width: 100%; height: 350px;
+    object-fit: cover; border-radius: 24px 24px 0 0; display: block;
 }
 
 
 /* ==========================================================
-   11. Responsive Design 
+   11. Responsive Design Strict (Mobile, iPad)
 ========================================================== */
+/* iPad Pro / Petits PCs */
 @media (max-width: 1024px) {
-    .hero-title { font-size: 3.5rem; }
-    .hero-container, .about-container, .contact-container {
-        grid-template-columns: 1fr;
-        gap: 50px;
-    }
+    .hero-title { font-size: 3.2rem; }
+    .hero-container, .about-container, .contact-container { grid-template-columns: 1fr; gap: 40px; }
     .hero-content { order: 2; text-align: center; }
-    .hero-description { margin: 0 auto 40px; }
+    .hero-description { margin: 0 auto 30px; }
     .hero-buttons { justify-content: center; }
-    .hero-image { order: 1; max-width: 500px; margin: 0 auto; }
+    .hero-image { order: 1; max-width: 450px; margin: 0 auto; }
 }
 
+/* Tablette & Téléphones normaux */
 @media (max-width: 768px) {
-    .section-title { font-size: 2.4rem; }
-    .section-subtitle { margin-bottom: 40px; }
+    /* Diminuer l'espace entre les grandes parties du site pour ne pas scroller dans le vide */
+    section { padding: 60px 0; }
     
+    .section-title { font-size: 2.2rem; margin-bottom: 10px; }
+    .section-subtitle { font-size: 1rem; margin-bottom: 40px; }
+    
+    /* Configuration FullScreen Menu Hamburguer */
     .nav-menu {
-        position: fixed;
-        top: 80px; left: -100%; width: 100%; height: calc(100vh - 80px);
-        background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(15px);
+        position: fixed; top: 70px; left: -100%; width: 100%; height: calc(100vh - 70px);
+        background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
         flex-direction: column; align-items: center; justify-content: center;
         transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1);
         border-top: 1px solid rgba(0,0,0,0.05);
     }
     .nav-menu.active { left: 0; }
-    .nav-item { margin: 25px 0; }
-    .nav-link { font-size: 1.5rem; font-weight: 700; color: var(--dark); }
-    .nav-toggle { display: block; }
+    .nav-item { margin: 20px 0; }
+    .nav-link { font-size: 1.4rem; font-weight: 700; color: var(--dark); }
+    .nav-toggle { display: block; font-size: 1.8rem;}
 
-    .skills-container, .projects-container { grid-template-columns: 1fr; gap: 30px; }
+    .skills-container, .projects-container { grid-template-columns: 1fr; }
 }
 
-/* CORRECTIF SPÉCIFIQUE MOBILE / POPUPS */
+/* Petits Téléphones (Taille Mobile Ultime & Corrections Popups) */
 @media (max-width: 576px) {
-    .hero-title { font-size: 2.5rem; letter-spacing: -1px; }
-    .section-title { font-size: 2rem; }
+    .hero { padding: 130px 0 60px; } /* Moins haut sur l'intro mobile */
+    .hero-title { font-size: 2.3rem; letter-spacing: -0.5px; }
     
     .glass-card { padding: 25px !important; }
-    .project-img { height: 200px; }
-    .btn { width: 100%; padding: 14px 20px; font-size: 0.95rem; }
-    .hero-buttons { flex-direction: column; width: 100%; }
+    .project-img { height: 180px; } /* Images cartes réduites pour vue rapide */
     
-    /* Orbes réduits */
-    .premium-bg-orb { width: 300px; height: 300px; }
+    /* Empiler tous les boutons pour prendre 100% la largeur */
+    .btn { width: 100%; padding: 14px 10px; font-size: 0.95rem; display: flex; }
+    .hero-buttons { flex-direction: column; width: 100%; gap: 15px; }
+    
+    /* Modération Orbes BG pour petits processeurs */
+    .premium-bg-orb { width: 300px; height: 300px; filter: blur(60px); }
     .orb-2 { right: -150px; top: 15%; }
-    
-    /* === Correction du Modale === */
-    .modal-content {
-        width: 95%; /* Prend tout l'écran presque */
-        margin: 5vh auto;
+
+    /* ====== CORRECTIONS ANTI-DEBORDEMENT DE LA FENETRE MODAL ====== */
+    .modal {
+        padding-top: 1vh; /* Encore moins d'écartement vertical en mobile */
     }
-    
-    /* Image moins haute */
-    .modal-project-images img { height: 180px; }
-    
-    /* Bouton fermer rentré vers l'intérieur pour ne pas dépasser l'écran */
+    .modal-content {
+        width: 95%; /* 95% écran, la marge est très mince = gain d'espace */
+        margin: 2vh auto; 
+        border-radius: 16px;
+    }
+    .modal-project-images img {
+        height: 180px; /* L'image s'écrase correctement au lieu d'utiliser tout l'écran ! */
+        border-radius: 16px 16px 0 0;
+    }
     .close-modal {
         top: 10px; right: 10px;
-        width: 40px; height: 40px;
-        border: 2px solid #fff;
+        width: 35px; height: 35px;
+        font-size: 16px;
+        border-width: 2px;
     }
-    
-    /* Espacements internes (textes) réduits */
     .modal-project-info {
-        padding: 20px !important; 
+        padding: 20px !important; /* Forces petit Padding texte pour respirer sur Mobile */
     }
-    
-    /* Titre H2 et Paragraphe rapetissés */
+    /* Diminuer violemment les textes pour tout caser et empêcher un trop grand défilement du doigt */
     #modal-project-title {
-        font-size: 1.5rem !important; 
-        margin-bottom: 10px !important;
+        font-size: 1.4rem !important;
+        margin-bottom: 8px !important;
+        line-height: 1.2 !important;
     }
     #modal-project-description {
-        font-size: 1rem !important;
-        line-height: 1.6 !important;
+        font-size: 0.95rem !important;
+        line-height: 1.5 !important;
         margin-bottom: 20px !important;
     }
-    
-    /* Les 2 boutons du Pop-up passent en Colonne (empilés) au lieu d'être l'un à côté de l'autre */
-    .modal-project-info > div {
+    /* La clé UX: empilement des liens 'Site En ligne' / 'Github' verticalement au lieu d'horizontalement !! */
+    .modal-project-info > div[style*="display:flex"] {
         flex-direction: column !important;
         gap: 12px !important;
     }
-    .modal-project-info .btn { width: 100%; }
+    .modal-project-info .btn { width: 100% !important; margin: 0 !important; }
 }
