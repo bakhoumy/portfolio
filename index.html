@@ -7,19 +7,11 @@
     <meta name="keywords" content="Développeur, Sénégal, PWA, Flutter, WordPress sur mesure, BTP, Touba, Dakar, Sociologie, UX Research, PySide6">
     <title>Yankhoba Bakhoum | Architecte Digital & Expert Socio-Technique</title>
     
-    <!-- Polices Premium (Google Fonts) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Lien vers Font Awesome (CDN) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Lien vers votre feuille de style personnalisée -->
     <link rel="stylesheet" href="css/style.css">
-    
-    <!-- Surcouche CSS Ultra Premium "Glass & Clean" -->
-
 </head>
 <body>
 
@@ -29,13 +21,12 @@
     <div class="premium-bg-orb orb-3"></div>
 
     <!-- Header -->
-    <header id="header" style="background: rgba(255,255,255,0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.05);">
+    <header id="header">
         <div class="container nav-container">
             <a href="#accueil" class="logo">
                 <i class="fas fa-layer-group" style="color:var(--primary)"></i>
                 <span>Yankhoba Bakhoum</span>
             </a>
-            
             <ul class="nav-menu">
                 <li class="nav-item"><a href="#accueil" class="nav-link active">Accueil</a></li>
                 <li class="nav-item"><a href="#a-propos" class="nav-link">À Propos</a></li>
@@ -43,7 +34,6 @@
                 <li class="nav-item"><a href="#competences" class="nav-link">Compétences</a></li>
                 <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-            
             <div class="nav-toggle">
                 <i class="fas fa-bars"></i>
             </div>
@@ -51,7 +41,7 @@
     </header>
 
     <main>
-        <!-- Section Accueil (Hero) -->
+        <!-- Section Accueil -->
         <section class="hero" id="accueil">
             <div class="container hero-container">
                 <div class="hero-content">
@@ -73,7 +63,6 @@
                     </div>
                 </div>
                 <div class="hero-image">
-                    <!-- Les orbes sont en arrière plan CSS -->
                     <div class="profile-img-container glass-card" style="padding:15px; background: rgba(255,255,255,0.4);">
                         <img src="assets/images/profil_bakhoum.png" alt="Photo de profil" class="profile-img" style="border-radius:12px;">
                     </div>
@@ -90,92 +79,110 @@
                 <div class="projects-container">
                     
                     <!-- Projet 1 : Touba BTP -->
-                    <div class="project-card glass-card reveal" data-project="toubabtp">
+                    <div class="project-card glass-card reveal">
                         <div class="project-img-wrapper">
                             <span class="project-type"><i class="fas fa-hard-hat"></i> BTP / Corporate</span>
-                            <!-- REMPLACEZ CES CHEMINS SI BESOIN -->
-                            <img src="assets/images/projet_toubabtp.png" alt="Touba BTP" class="project-img" loading="lazy" onerror="this.src='https://via.placeholder.com/800x600.png?text=Aper%C3%A7u+Touba+BTP'">
+                            <img src="assets/images/projet_toubabtp.png" alt="Touba BTP" class="project-img" loading="lazy" onerror="this.src='https://via.placeholder.com/800x600.png?text=Touba+BTP'">
                         </div>
                         <div class="project-content">
                             <h3 class="project-title" style="margin-bottom:10px;">Touba BTP - Site Sur-Mesure</h3>
-                            <p class="project-description">Refonte complète avec un Thème WordPress conçu à partir de zéro (From Scratch) pour mettre en valeur le savoir-faire de l'entreprise.</p>
+                            <p class="project-description">Refonte complète avec un Thème WordPress conçu à partir de zéro pour mettre en valeur le savoir-faire de l'entreprise et optimiser les temps de chargement locaux.</p>
                             <div class="project-tags">
                                 <span class="tag">WordPress custom</span><span class="tag">PHP</span><span class="tag">CSS3</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://touba-btp.com/" target="_blank" class="btn" style="width: 100%;"><i class="fas fa-globe"></i> Visiter le site</a>
                             </div>
                         </div>
                     </div>
 
                     <!-- Projet 2 : Mame Lamp -->
-                    <div class="project-card glass-card reveal" data-project="mamelamp">
+                    <div class="project-card glass-card reveal">
                         <div class="project-img-wrapper">
                             <span class="project-type"><i class="fas fa-shopping-cart"></i> PWA E-commerce</span>
-                            <img src="assets/images/projet_mamelamp.png" alt="Mame Lamp" class="project-img" loading="lazy" onerror="this.src='https://via.placeholder.com/800x600.png?text=Aper%C3%A7u+Mame+Lamp'">
+                            <img src="assets/images/projet_mamelamp.png" alt="Mame Lamp" class="project-img" loading="lazy" onerror="this.src='https://via.placeholder.com/800x600.png?text=Mame+Lamp'">
                         </div>
                         <div class="project-content">
                             <h3 class="project-title" style="margin-bottom:10px;">Quincaillerie Mame Lamp</h3>
-                            <p class="project-description">Solution e-commerce Mobile-First développée en Progressive Web App (PWA). Rapidité et fluidité extrêmes adaptées à la connexion locale.</p>
+                            <p class="project-description">Solution e-commerce hybride installable (Progressive Web App). Une alternative sans les frais de l'App Store offrant un fonctionnement fluide avec cache hors-ligne.</p>
                             <div class="project-tags">
                                 <span class="tag">PWA</span><span class="tag">WooCommerce</span><span class="tag">Mobile</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://quincaillerie-mamelamp.com/" target="_blank" class="btn" style="width: 100%;"><i class="fas fa-globe"></i> Visiter l'App Web</a>
                             </div>
                         </div>
                     </div>
 
                     <!-- Projet 3 : Resto Bi -->
-                    <div class="project-card glass-card reveal" data-project="restobi">
+                    <div class="project-card glass-card reveal">
                         <div class="project-img-wrapper">
-                            <span class="project-type"><i class="fas fa-utensils"></i> Application Mobile Flutter</span>
-                            <img src="assets/images/projet_restobi.png" alt="Resto Bi" class="project-img" loading="lazy" onerror="this.src='https://via.placeholder.com/800x600.png?text=Aper%C3%A7u+Resto+Bi'">
+                            <span class="project-type"><i class="fas fa-utensils"></i> App Mobile Flutter</span>
+                            <img src="assets/images/projet_restobi.png" alt="Resto Bi" class="project-img" loading="lazy" onerror="this.src='https://via.placeholder.com/800x600.png?text=Resto+Bi'">
                         </div>
                         <div class="project-content">
                             <h3 class="project-title" style="margin-bottom:10px;">Resto Bi (Fast Food POS)</h3>
-                            <p class="project-description">Caisse Enregistreuse Mobile innovante (Point Of Sale). Fluidifie la prise de commande entre le serveur, la caisse et la cuisine en temps réel.</p>
+                            <p class="project-description">Logiciel de caisse sur tablette limitant les erreurs de serveurs en zone de rush, synchronisant l'édition du ticket salle directement avec le pôle cuisine.</p>
                             <div class="project-tags">
-                                <span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">App Mobile</span>
+                                <span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">UI Caisse</span>
+                            </div>
+                            <!-- Si vous n'avez pas de lien public, bouton inactif / caché -->
+                            <div class="project-links">
+                                <button disabled class="btn btn-outline" style="width: 100%; cursor: not-allowed; color:#94a3b8; border-color:#e2e8f0;">Projet Privé Métier</button>
                             </div>
                         </div>
                     </div>
 
                     <!-- Projet 4 : Sendiwaan -->
-                    <div class="project-card glass-card reveal" data-project="sendiwaan">
+                    <div class="project-card glass-card reveal">
                         <div class="project-img-wrapper">
-                            <span class="project-type"><i class="fas fa-bullhorn"></i> Plateforme Web</span>
-                            <img src="assets/images/projet_sendiwaan.png" alt="Sendiwaan" class="project-img" loading="lazy" onerror="this.src='https://via.placeholder.com/800x600.png?text=Aper%C3%A7u+Sendiwaan'">
+                            <span class="project-type"><i class="fas fa-bullhorn"></i> Plateforme Annonces</span>
+                            <img src="assets/images/projet_sendiwaan.png" alt="Sendiwaan" class="project-img" loading="lazy" onerror="this.src='https://via.placeholder.com/800x600.png?text=Sendiwaan'">
                         </div>
                         <div class="project-content">
                             <h3 class="project-title" style="margin-bottom:10px;">Sendiwaan Annonces</h3>
-                            <p class="project-description">Plateforme facilitant l'économie circulaire locale à travers la diffusion gratuite et simplifiée de petites annonces avec moteur de recherche interne.</p>
+                            <p class="project-description">Interface locale axée sur l'économie circulaire : petites annonces entre particuliers pensées sans inscription complexe favorisant la durabilité des biens.</p>
                             <div class="project-tags">
-                                <span class="tag">WordPress</span><span class="tag">Javascript</span><span class="tag">Social</span>
+                                <span class="tag">PHP</span><span class="tag">Javascript</span><span class="tag">Social</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="http://www.sendiwaan.com" target="_blank" class="btn" style="width: 100%;"><i class="fas fa-globe"></i> Visiter le site</a>
                             </div>
                         </div>
                     </div>
                     
                     <!-- Projet 5 : Sama Daara -->
-                    <div class="project-card glass-card reveal" data-project="samadaara">
+                    <div class="project-card glass-card reveal">
                         <div class="project-img-wrapper">
-                            <span class="project-type"><i class="fas fa-laptop-code"></i> Logiciel Bureau (ERP)</span>
-                            <img src="assets/images/projet_samadaara.png" alt="Sama Daara" class="project-img" loading="lazy" onerror="this.src='https://via.placeholder.com/800x600.png?text=Aper%C3%A7u+Sama+Daara'">
+                            <span class="project-type"><i class="fas fa-laptop-code"></i> ERP Local Bureau</span>
+                            <img src="assets/images/projet_samadaara.png" alt="Sama Daara" class="project-img" loading="lazy" onerror="this.src='https://via.placeholder.com/800x600.png?text=Sama+Daara'">
                         </div>
                         <div class="project-content">
                             <h3 class="project-title" style="margin-bottom:10px;">Sama Daara Gestion</h3>
-                            <p class="project-description">Développé en Python avec une UX centrée sur les codes culturels de l'éducation religieuse. Stockage local des données pour l'autonomie et la sécurité.</p>
+                            <p class="project-description">UX orientée pour s'allier aux coutumes religieuses sénégalaises des "Daaras". Un socle solide et déconnecté (offline) en SQLite pour protéger les enfants mineurs.</p>
                             <div class="project-tags">
                                 <span class="tag">Python</span><span class="tag">PySide6</span><span class="tag">SQLite</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/votre_pseudo/samadaara" target="_blank" class="btn btn-outline" style="width: 100%;"><i class="fab fa-github"></i> Code Source</a>
                             </div>
                         </div>
                     </div>
 
                     <!-- Projet 6 : ScrcpyGui -->
-                    <div class="project-card glass-card reveal" data-project="scrcpygui">
+                    <div class="project-card glass-card reveal">
                         <div class="project-img-wrapper">
-                            <span class="project-type"><i class="fas fa-terminal"></i> Open Source DevTool</span>
-                            <img src="assets/images/projet_scrcpygui.png" alt="ScrcpyGui" class="project-img" loading="lazy" onerror="this.src='https://via.placeholder.com/800x600.png?text=Aper%C3%A7u+Scrcpy'">
+                            <span class="project-type"><i class="fas fa-terminal"></i> DevTool</span>
+                            <img src="assets/images/projet_scrcpygui.png" alt="ScrcpyGui" class="project-img" loading="lazy" onerror="this.src='https://via.placeholder.com/800x600.png?text=Scrcpy'">
                         </div>
                         <div class="project-content">
                             <h3 class="project-title" style="margin-bottom:10px;">Scrcpy UI - Android Cast</h3>
-                            <p class="project-description">Interface graphique épurée rendant la puissante librairie ligne de commande 'Scrcpy' accessible facilement pour des tests QA Mobile.</p>
+                            <p class="project-description">Coup de pouce open-source apporté aux analystes QA mobiles. Outil rendant le test USB Scrcpy contrôlable intégralement sans aucune ligne de code via un environnement cliquable propre.</p>
                             <div class="project-tags">
-                                <span class="tag">Python</span><span class="tag">GUI</span><span class="tag">Android</span>
+                                <span class="tag">Python</span><span class="tag">PyQt5</span><span class="tag">DevOps</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/votre_pseudo/scrcpygui" target="_blank" class="btn btn-outline" style="width: 100%;"><i class="fab fa-github"></i> Code Source</a>
                             </div>
                         </div>
                     </div>
@@ -184,7 +191,7 @@
             </div>
         </section>
 
-        <!-- Section À Propos & Vision (L'Humain + Code) -->
+        <!-- Section À Propos & Vision -->
         <section class="about" id="a-propos">
             <div class="container">
                 <h2 class="section-title reveal">Quand la Sociologie <span class="highlight-accent">Rencontre le Code</span></h2>
@@ -197,7 +204,7 @@
                         </p>
                         <p class="about-description" style="margin-top:20px;">
                             Mon parcours atypique a forgé mon expertise. Mon mémoire sur la <strong>gestion socio-environnementale du lac Warouwaye</strong> m'a appris à écouter les vrais besoins d'une communauté. 
-                            Aujourd'hui, avant de concevoir la maquette d'un logiciel métier comme <span style="font-weight: 600;">Sama Daara</span> ou l'architecture serveur d'une App PWA pour un commerce comme <span style="font-weight: 600;">Mame Lamp</span>, j'analyse minutieusement les usages, le contexte technologique (réseau lent, terminaux variés) et l'expérience recherchée par l'utilisateur final sénégalais et global.
+                            Aujourd'hui, avant de concevoir un logiciel métier ou l'architecture serveur d'une App, j'analyse minutieusement les usages, le contexte (réseau lent, terminaux variés) et l'expérience recherchée par l'utilisateur final.
                         </p>
                         <div style="display: flex; gap: 15px; margin-top: 35px; flex-wrap: wrap;">
                             <a href="#" class="btn" onclick="alert('Ajoutez le fichier CV_Yankhoba_Bakhoum.pdf dans vos dossiers !')">
@@ -213,61 +220,59 @@
                         <h3 class="research-title" style="margin-bottom: 5px;"><i class="fas fa-microscope" style="color:var(--primary);"></i> L'Ingénierie Agile</h3>
                         <h4 style="margin-bottom:20px; color: var(--accent); font-size:1.1rem; font-weight:600;">Ce que je livre concrètement à mes clients</h4>
                         <ul style="list-style: none; padding:0; margin:0; line-height: 2;">
-                            <li><i class="fas fa-check-circle" style="color:#25D366; margin-right: 10px;"></i><strong>Sur-Mesure:</strong> Fini les templates rigides (Themes WordPress de zéro).</li>
-                            <li><i class="fas fa-check-circle" style="color:#25D366; margin-right: 10px;"></i><strong>PWA Focus:</strong> Sites convertibles en applications en 1 clic.</li>
-                            <li><i class="fas fa-check-circle" style="color:#25D366; margin-right: 10px;"></i><strong>UX Authentique:</strong> Des interfaces respectant vos équipes.</li>
-                            <li><i class="fas fa-check-circle" style="color:#25D366; margin-right: 10px;"></i><strong>Stabilité Offline:</strong> Pensé pour palier aux baisses réseau.</li>
+                            <li><i class="fas fa-check-circle" style="color:#25D366; margin-right: 10px;"></i><strong>Sur-Mesure:</strong> Fini les templates rigides (Themes WP de zéro).</li>
+                            <li><i class="fas fa-check-circle" style="color:#25D366; margin-right: 10px;"></i><strong>PWA Focus:</strong> Sites web installables en application locale.</li>
+                            <li><i class="fas fa-check-circle" style="color:#25D366; margin-right: 10px;"></i><strong>UX Authentique:</strong> Des interfaces qui respectent votre métier.</li>
+                            <li><i class="fas fa-check-circle" style="color:#25D366; margin-right: 10px;"></i><strong>Stabilité Offline:</strong> Parer intelligemment aux instabilités de réseau local.</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Section Compétences Techniques (Réintégrée de la v1) -->
+        <!-- Section Compétences Techniques -->
         <section class="skills" id="competences" style="padding-top: 50px;">
             <div class="container">
                 <h2 class="section-title reveal">Écosystème Technologique</h2>
-                <span class="section-subtitle reveal">Maîtrise d'une stack complète, couplée à une analyse pointue.</span>
+                <span class="section-subtitle reveal">Maîtrise d'une stack complète, couplée à une analyse sociale fine.</span>
                 
                 <div class="skills-container">
-                    <!-- Carte Dev / IT -->
                     <div class="skill-card glass-card reveal" style="padding: 40px;">
                         <h3 class="skill-title" style="margin-bottom: 25px;"><i class="fas fa-code"></i> Engineering Full-Stack</h3>
                         <div class="skill-list" style="display: flex; flex-direction: column; gap: 18px;">
                             <div style="display:flex; align-items:center; gap: 15px; border-bottom:1px solid rgba(0,0,0,0.05); padding-bottom: 12px;">
                                 <i class="fab fa-wordpress" style="font-size:1.8rem; color:#21759b; width:30px;"></i> 
-                                <span style="font-weight: 500;"><strong>CMS & PWA:</strong> WP (Thèmes Custom), PHP, JS, WooCommerce</span>
+                                <span style="font-weight: 500;"><strong>Web PWA:</strong> WP (Thèmes Custom), PHP, JavaScript</span>
                             </div>
                             <div style="display:flex; align-items:center; gap: 15px; border-bottom:1px solid rgba(0,0,0,0.05); padding-bottom: 12px;">
                                 <img src="https://img.icons8.com/color/48/000000/flutter.png" alt="flutter" style="width:30px;"/>
-                                <span style="font-weight: 500;"><strong>Mobile:</strong> Flutter (Dart), Intégrations API</span>
+                                <span style="font-weight: 500;"><strong>Mobile:</strong> Appli natives avec le framework Flutter (Dart)</span>
                             </div>
                             <div style="display:flex; align-items:center; gap: 15px; border-bottom:1px solid rgba(0,0,0,0.05); padding-bottom: 12px;">
                                 <i class="fab fa-python" style="font-size:1.8rem; color:#4B8BBE; width:30px;"></i>
-                                <span style="font-weight: 500;"><strong>Python Apps:</strong> PySide6/PyQt (Desktop), Django, WebScraping</span>
+                                <span style="font-weight: 500;"><strong>Logiciels Métier:</strong> Python Desktop UI (PySide6 / PyQt5)</span>
                             </div>
                             <div style="display:flex; align-items:center; gap: 15px; padding-bottom: 8px;">
                                 <i class="fas fa-database" style="font-size:1.5rem; color:#f29111; width:30px;"></i>
-                                <span style="font-weight: 500;"><strong>DevOps & BDD:</strong> SQLite, MySQL, Git, Docker, Serveurs locaux</span>
+                                <span style="font-weight: 500;"><strong>Ops & Back:</strong> DB Relationnelles SQLite/MySQL, Git local</span>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Carte Analyse / Sciences Humaines -->
                     <div class="skill-card glass-card reveal" style="padding: 40px;">
-                        <h3 class="skill-title" style="margin-bottom: 25px;"><i class="fas fa-users-viewfinder"></i> Recherche & UX/Socio</h3>
+                        <h3 class="skill-title" style="margin-bottom: 25px;"><i class="fas fa-users-viewfinder"></i> Recherche UX & Sociologie</h3>
                         <div class="skill-list" style="display: flex; flex-direction: column; gap: 18px;">
                             <div style="display:flex; align-items:center; gap: 15px; border-bottom:1px solid rgba(0,0,0,0.05); padding-bottom: 12px;">
                                 <i class="fas fa-search-location" style="font-size:1.6rem; color:var(--secondary); width:30px;"></i>
-                                <span style="font-weight: 500;"><strong>Qualitative/Quantitative:</strong> Entretiens, statistiques sociales, enquêtes terrain</span>
+                                <span style="font-weight: 500;"><strong>Data Quali/Quanti:</strong> Enquêtes statistiques de l'expérience, Observations In Situ</span>
                             </div>
                             <div style="display:flex; align-items:center; gap: 15px; border-bottom:1px solid rgba(0,0,0,0.05); padding-bottom: 12px;">
                                 <i class="fas fa-user-circle" style="font-size:1.6rem; color:var(--secondary); width:30px;"></i>
-                                <span style="font-weight: 500;"><strong>Design UX (User Research):</strong> Définition des Personas, Map Parcours client</span>
+                                <span style="font-weight: 500;"><strong>Design System:</strong> Conception visuelle depuis la culture du Persona visé</span>
                             </div>
                             <div style="display:flex; align-items:center; gap: 15px; padding-bottom: 8px;">
                                 <i class="fas fa-scale-balanced" style="font-size:1.4rem; color:var(--secondary); width:30px;"></i>
-                                <span style="font-weight: 500;"><strong>Éthique Numérique:</strong> Réduction des frictions, Analyse d'impact d'intégration des SI</span>
+                                <span style="font-weight: 500;"><strong>Éthique IT:</strong> Protection à long-terme des comportements algorithmiques face aux communautés locales</span>
                             </div>
                         </div>
                     </div>
@@ -277,7 +282,6 @@
 
         <!-- Section Contact Direct / Whatsapp -->
         <section class="contact" id="contact" style="position:relative; overflow:hidden;">
-            <!-- Orbe pour contact section uniquement -->
             <div style="position:absolute; width: 600px; height:600px; background:radial-gradient(circle, rgba(37,211,102,0.1) 0%, rgba(255,255,255,0) 70%); top:-200px; right:-200px; z-index:-1;"></div>
             
             <div class="container">
@@ -285,7 +289,7 @@
                     <div class="contact-info reveal glass-card" style="padding: 40px; border-width: 0; box-shadow: none; background: transparent;">
                         <h2 style="font-size:2.8rem; margin-bottom: 25px; line-height:1.2;">Un besoin logiciel ?<br>Une idée de refonte ?<br><span class="highlight-accent">Démarrons l'étude.</span></h2>
                         <p class="contact-description" style="margin-bottom: 30px; font-size:1.1rem; max-width:90%;">
-                            Je privilégie les projets stimulants. Si vous souhaitez qu'une équipe compétente ou un Freelance Senior étudie l'architecture de votre prochain App/Site avec l'oeil du sociologue et la main du dev technique, discutons-en en direct.
+                            Je privilégie les projets B2B stimulants. Si vous souhaitez qu'un partenaire sérieux audite ou bâtisse l'architecture de votre Site vitrine / E-commerce PWA, rencontrons-nous ou échangeons via WhatsApp.
                         </p>
                         
                         <div style="display: flex; align-items:center; gap:15px; margin-bottom: 20px;">
@@ -314,12 +318,11 @@
                                 <input type="text" id="companyRole" placeholder="Société ou type de projet (Ex: Restaurant, BTP...)" class="form-control">
                             </div>
                             <div class="form-group" style="margin-bottom: 25px;">
-                                <textarea id="message" placeholder="Détaillez un peu vos objectifs ou l'état d'avancement de vos besoins techniques..." rows="5" class="form-control" required style="resize:none;"></textarea>
+                                <textarea id="message" placeholder="Détaillez vos besoins de déploiement (vitrine ? backoffice ? etc...)" rows="5" class="form-control" required style="resize:none;"></textarea>
                             </div>
                             <button type="button" id="sendWhatsAppBtn" class="btn" style="width: 100%; height: 55px; font-size:1.15rem; border-radius: 12px; background: linear-gradient(90deg, #128C7E, #25D366); border:none;">
-                                Ouvrir le chat WhatsApp <i class="fab fa-whatsapp" style="font-size:1.4rem;"></i>
+                                Démarrer l'audit WhatsApp <i class="fab fa-whatsapp" style="font-size:1.4rem;"></i>
                             </button>
-                            <p style="text-align: center; margin-top: 15px; font-size:0.8rem; color: #64748b;"><i class="fas fa-lock"></i> Vous serez redirigé sur l'App WhatsApp vers le +221786056914</p>
                         </form>
                     </div>
                 </div>
@@ -328,30 +331,11 @@
 
     </main>
 
-    <!-- Le système de Modal (Gardé pour sa souplesse sans alourdir le JS principal) -->
-    <div id="project-modal" class="modal">
-        <span class="close-modal"><i class="fas fa-times"></i></span>
-        <div class="modal-content">
-            <div class="modal-project-images" style="background:#f1f5f9; text-align:center;">
-                <img id="modal-project-main-image" src="" alt="Détail de mon projet">
-            </div>
-            <div class="modal-project-info" style="position:relative;">
-                <h2 id="modal-project-title" style="font-size: 2.2rem; margin-bottom: 15px; color:var(--dark);"></h2>
-                <div id="modal-project-description" style="font-size: 1.15rem; color: #475569; line-height: 1.8; margin-bottom: 30px;"></div>
-                
-                <div style="display:flex; gap:15px;">
-                    <a href="#" id="modal-project-live-link" target="_blank" class="btn"><i class="fas fa-globe"></i> Explorer le produit final</a>
-                    <a href="#" id="modal-project-github-link" target="_blank" class="btn btn-outline"><i class="fab fa-github"></i> Explorer le code</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer Super Clean & SEO minimaliste -->
+    <!-- Footer Simplifié & Moderne -->
     <footer style="background-color: var(--dark); padding: 50px 0; color: #cbd5e1; border-top: 3px solid var(--accent);">
         <div class="container" style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 20px;">
             <a href="#accueil" style="font-size: 1.8rem; font-weight: 800; color: #fff; text-decoration: none; font-family:var(--font-heading);"><i class="fas fa-layer-group" style="color:var(--accent);"></i> Y. Bakhoum</a>
-            <p style="max-width: 600px; font-size: 1rem;">L'alliance de l'intelligence technique web/mobile et de la perspective sociétale des technologies, conçue depuis Dakar pour des acteurs économiques exigeants.</p>
+            <p style="max-width: 600px; font-size: 1rem;">La vision du technicien encadrée par le cerveau du sociologue. Depuis Dakar au profit de projets technologiques porteurs de valeurs sociétales et commerciales fortes.</p>
             <div style="display: flex; gap: 15px; margin-top:10px;">
                 <a href="https://www.linkedin.com/in/yankhoba-bakhoum-7b9074219/" target="_blank" style="background: rgba(255,255,255,0.1); width: 45px; height: 45px; display:flex; justify-content:center; align-items:center; border-radius: 50%; color: #fff; text-decoration:none; transition: 0.3s; border:1px solid rgba(255,255,255,0.2);">
                     <i class="fab fa-linkedin" style="font-size: 1.2rem;"></i>
@@ -361,12 +345,12 @@
                 </a>
             </div>
             <div style="margin-top: 30px; font-size: 0.8rem; color: #475569; padding-top:20px; border-top: 1px solid rgba(255,255,255,0.05); width:100%;">
-                &copy; 2025 Yankhoba Bakhoum — Site personnel à hautes performances HTML/JS native.
+                &copy; 2025 Yankhoba Bakhoum — Création codée "From Scratch" sans constructeur visuel.
             </div>
         </div>
     </footer>
 
-    <!-- Initialisation effets externes (NavBar + Reveal) -->
+    <!-- Logiques JavaScript natives propres (Modales ôtées) -->
     <script src="js/script.js" defer></script>
 </body>
 </html>
