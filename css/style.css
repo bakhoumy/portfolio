@@ -521,18 +521,19 @@ header {
     position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%;
     background-color: rgba(15, 23, 42, 0.85);
     backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-    padding-top: 5vh; overflow-y: auto;
+    overflow-y: auto; /* Autorise le défilement */
+    -webkit-overflow-scrolling: touch; /* Scroll fluide sur iPhone */
 }
 
 .modal-content {
     background: #fff;
-    margin: auto; padding: 0;
+    margin: 5vh auto 5vh auto; /* Des marges propres en haut et bas */
+    padding: 0;
     border-radius: var(--border-radius);
     width: 90%; max-width: 900px;
     position: relative;
     box-shadow: 0 25px 50px rgba(0,0,0,0.3);
     animation: slideUp 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-    margin-bottom: 50px;
 }
 
 @keyframes slideUp {
@@ -550,7 +551,7 @@ header {
     border: 3px solid #fff;
     transition: transform 0.3s;
 }
-.close-modal:hover { transform: scale(1.1) rotate(90deg); }
+.close-modal:hover { transform: scale(1.1) rotate(90deg); background: #ef4444; border-color: #ef4444; }
 
 .modal-project-images img {
     width: 100%;
@@ -569,11 +570,9 @@ header {
         grid-template-columns: 1fr;
         gap: 50px;
     }
-    
     .hero-content { order: 2; text-align: center; }
     .hero-description { margin: 0 auto 40px; }
     .hero-buttons { justify-content: center; }
-    
     .hero-image { order: 1; max-width: 500px; margin: 0 auto; }
 }
 
@@ -581,12 +580,10 @@ header {
     .section-title { font-size: 2.4rem; }
     .section-subtitle { margin-bottom: 40px; }
     
-    /* Menu Mobile Full-screen Style */
     .nav-menu {
         position: fixed;
         top: 80px; left: -100%; width: 100%; height: calc(100vh - 80px);
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(15px);
+        background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(15px);
         flex-direction: column; align-items: center; justify-content: center;
         transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1);
         border-top: 1px solid rgba(0,0,0,0.05);
@@ -596,82 +593,59 @@ header {
     .nav-link { font-size: 1.5rem; font-weight: 700; color: var(--dark); }
     .nav-toggle { display: block; }
 
-    .skills-container, .projects-container {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
+    .skills-container, .projects-container { grid-template-columns: 1fr; gap: 30px; }
 }
 
-/* Remplacement/Ajout pour corriger la version Mobile (max 576px) */
+/* CORRECTIF SPÉCIFIQUE MOBILE / POPUPS */
 @media (max-width: 576px) {
-    /* Typographies globales ajustées */
     .hero-title { font-size: 2.5rem; letter-spacing: -1px; }
     .section-title { font-size: 2rem; }
     
     .glass-card { padding: 25px !important; }
     .project-img { height: 200px; }
-    
     .btn { width: 100%; padding: 14px 20px; font-size: 0.95rem; }
     .hero-buttons { flex-direction: column; width: 100%; }
     
-    /* Orbes d'arrière-plan plus petites pour éviter de perturber le tactile */
+    /* Orbes réduits */
     .premium-bg-orb { width: 300px; height: 300px; }
     .orb-2 { right: -150px; top: 15%; }
-
-    /* ====== CORRECTIONS DE LA MODALE PROJET ====== */
     
-    .modal {
-        padding-top: 2vh; /* Modale plus haute sur mobile */
-    }
-
+    /* === Correction du Modale === */
     .modal-content {
-        width: 95%; /* 95% au lieu de 90% pour gagner de la place */
-        margin-top: 20px;
+        width: 95%; /* Prend tout l'écran presque */
+        margin: 5vh auto;
     }
     
-    .modal-project-images img { 
-        height: 200px; /* Moins haut sur mobile pour pouvoir lire le texte sans trop scroller */
-        border-radius: 15px 15px 0 0;
+    /* Image moins haute */
+    .modal-project-images img { height: 180px; }
+    
+    /* Bouton fermer rentré vers l'intérieur pour ne pas dépasser l'écran */
+    .close-modal {
+        top: 10px; right: 10px;
+        width: 40px; height: 40px;
+        border: 2px solid #fff;
     }
-
+    
+    /* Espacements internes (textes) réduits */
     .modal-project-info {
-        padding: 20px; /* Réduit l'espace vide sur les côtés */
+        padding: 20px !important; 
     }
-
+    
+    /* Titre H2 et Paragraphe rapetissés */
     #modal-project-title {
-        font-size: 1.5rem !important;
-        margin-bottom: 10px;
-        line-height: 1.3;
-        word-wrap: break-word; /* Force le texte trop long à la ligne */
+        font-size: 1.5rem !important; 
+        margin-bottom: 10px !important;
     }
-
     #modal-project-description {
         font-size: 1rem !important;
+        line-height: 1.6 !important;
         margin-bottom: 20px !important;
     }
-
-    /* Le secret est ici : Forcer les 2 boutons à se placer l'un en dessous de l'autre ! */
+    
+    /* Les 2 boutons du Pop-up passent en Colonne (empilés) au lieu d'être l'un à côté de l'autre */
     .modal-project-info > div {
         flex-direction: column !important;
-        gap: 10px !important;
-        width: 100%;
+        gap: 12px !important;
     }
-    
-    /* Boutons de la Modale en 100% de la largeur du téléphone */
-    .modal-project-info > div a.btn {
-        width: 100% !important;
-        justify-content: center;
-        text-align: center;
-    }
-
-    /* Le bouton 'Fermer X' remis proprement à l'intérieur du cadre (plus de débordement) */
-    .close-modal {
-        top: 10px; 
-        right: 10px;
-        width: 38px; 
-        height: 38px;
-        font-size: 16px;
-        border-width: 2px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.5); /* Plus sombre pour rester visible sur l'image */
-    }
+    .modal-project-info .btn { width: 100%; }
 }
