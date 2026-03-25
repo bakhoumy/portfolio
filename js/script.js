@@ -87,24 +87,14 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             // Pour Sendiwaan & Scrcpy, nous mettons de brèves descriptions respectant la structure :
             sendiwaan: {
-                title: "Sendiwaan - Plateforme de Petites Annonces Locales",
-                desc: `
-                    <h4>🛒 Le Marché de l'Économie Circulaire</h4>
-                    <p>La mission était de déployer une plateforme C-to-C (entre particuliers) 100% gratuite, pour encourager le don, le troc et l'économie locale au Sénégal via une interface accessible à tous.</p>
-                    
-                    <h4>💻 Approche Agile : "Child Theme" & Surcharge WP</h4>
-                    <ul>
-                        <li><strong>Choix Technologique Stratégique :</strong> Pour répondre aux exigences fonctionnelles complexes des annonces sans exploser les délais, nous avons fait l'acquisition d'un thème premium professionnel agissant comme socle robuste de base de données.</li>
-                        <li><strong>Développement en Thème Enfant (Child Theme) :</strong> J'ai créé un thème enfant afin de réécrire en profondeur les fichiers de rendu (PHP) et la feuille de style. Cela a permis de modifier les processus de soumission d'annonces, le design de l'accueil et la logique d'UI sans casser les mises à jour futures du thème parent.</li>
-                        <li><strong>Optimisation de la Recherche :</strong> Paramétrage et adaptation visuelle du moteur de recherche multicritères (par villes sénégalaises et catégories) et des processus de géolocalisation pour les utilisateurs.</li>
-                    </ul>`,
+                title: "Sendiwaan - L'économie solidaire Numérique",
+                desc: "<h4>🛒 La Plateforme de C-2-C Solidaire </h4><p>L'essentiel au cœur du modèle Sénégalais (Troc / Echanges locaux faciles)</p><ul><li>Architecture Modèle MVC et intégrations API Images Poids restreint. Custom.  Moteur search Filtre complet localisées,  WordPress (Base back secure users validation + Frontend App Web API React/Jquery ajax. SEO Friendly !</li></ul>",
                 image: "assets/images/projet_sendiwaan.png",
-                live: "http://www.sendiwaan.com", 
-                git: ""
+                live: "http://www.sendiwaan.com", git: ""
             },
             scrcpygui: {
                 title: "Développement Libre: Le Tool Interface Screen-Cast (Q-T) ",
-                desc: "<h4>🧰 Soutien a Communauté Q/A Analyst</h4><p>Wrappers Terminal complet (Command lines CLI Tooling  > Desktop  UI  faciles 2.0 GUI pour test Pwa Flutter).",
+                desc: "<h4>🧰 Soutien a Communauté Q/A Analyst</h4><p>Wrappers Terminal complet (Command lines CLI Tooling  > Desktop  UI  faciles 2.0 GUI pour test Pwa Flutter). C# et py...</p>",
                 image: "assets/images/projet_scrcpygui.png",
                 live: "", git: "https://github.com/votre_profil"
             }
