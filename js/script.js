@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const projectDatabase = {
             mamelamp: {
-                title: "SAMA QUINCAILLERIE : PWA E-commerce",
+                title: "QUINCAILLERIE MAME LAMP : PWA E-commerce",
                 desc: `
                     <h4>🎯 Le Défi Métier</h4>
                     <p>Fournir aux artisans, gérants et clients d'une quincaillerie de quartier la vitesse d'une app internationale, le tout optimisé pour un marché africain (connexions instables, usage fort de WhatsApp).</p>
@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 git: ""
             },
             samadaara: {
-                title: "Waqf SocioTech : Sama Daara ERP",
+                title: "Waqf SocioTech : Sama Daara",
                 desc: `
                     <h4>📿 Progiciel Métier Desktop </h4>
                     <p>Une démarche de sociologue pour l'informatique : Fournir aux structures des daaras les moyens sécuritaires modernes et logistiques hors abonnements Cloud/SaaS couteux (Protection de la donnée sur le PC physique non relié internet).</p>
